@@ -1,0 +1,67 @@
+.reviewSection {
+  /* border: 5px solid royalblue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 25px 0 45px;
+  text-align: center;
+  background-color: #0047ab;
+  font-family: "Stardos Stencil", system-ui;
+}
+
+.review-heading h2 {
+  color: white;
+  font-size: 20px;
+}
+
+.review-heading > p {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stars {
+  font-size: 45px;
+  color: rgb(220, 188, 4);
+}
+
+.logo {
+  width: 15vw;
+  margin: 15px 0;
+}
+
+.reviewsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+/* Desktop design */
+@media (min-width: 768px) {
+  .reviewSection {
+
+  }
+
+  .reviewHeading > P {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .stars {
+    font-size: 45px;
+    color: rgb(220, 188, 4);
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .reviewsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}

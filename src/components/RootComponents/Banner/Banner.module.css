@@ -1,0 +1,134 @@
+/* Mobile first design */
+.promo-banner-container {
+  background-color: #0047ab;
+  color: white;
+  font-family: "Stardos Stencil", system-ui;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: height 0.5s ease, z-index 0.3s ease;
+}
+
+.show-banner {
+  z-index: 100;
+  /* z-index: 200; */
+  height: 60px;
+}
+
+.hide-banner {
+  z-index: -10;
+  height: 0;
+}
+
+.promo-banner-container p:nth-child(1) {
+  display: none;
+}
+
+.promo-banner-container p:nth-child(2) {
+  position: absolute;
+  left: 10px;
+  left: 3vw;
+}
+
+.promo-banner-container p:nth-child(2) a {
+  /* font-size: 4.2vw; */
+  font-size: clamp(1rem, 4.2vw, 1.5rem);
+  color: white;
+  text-decoration: none;
+}
+
+.banner-socials {
+  /* font-size: 1.8rem;
+  font-size: 7.5vw; */
+  font-size: clamp(1rem, 7.5vw, 2rem);
+  color: white;
+}
+
+.promo-banner-container div {
+  width: 75px;
+  position: absolute;
+  right: 6vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+}
+
+.promo-banner-container button {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+/* Desktop design */
+@media (min-width: 768px) {
+  .show-banner {
+    height: 45px;
+  }
+  .promo-banner-container p:nth-child(1) {
+    display: inline-block;
+  }
+
+  .promo-banner-container p:nth-child(2) {
+    position: static;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease;
+  }
+
+  .promo-banner-container p:nth-child(2):hover {
+    border-bottom: 2px solid white;
+  }
+
+  .promo-banner-container p:nth-child(2) a {
+    font-size: 18px;
+  }
+
+  .promo-banner-container p span {
+    vertical-align: sub;
+    margin-right: 5px;
+  }
+
+  .promo-banner-container p {
+    font-size: 18px;
+  }
+
+  .promo-banner-container div {
+    position: static;
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+  }
+
+  .banner-socials {
+    position: static;
+    font-size: 35px;
+    vertical-align: middle;
+    transition: color 0.2s ease;
+  }
+
+  .banner-socials:hover {
+    color: rgb(222, 8, 8);
+  }
+
+  .promo-banner-container button {
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  .promo-banner-container button:hover {
+    color: rgb(222, 8, 8);
+  }
+
+  .hide-banner button {
+    display: none;
+  }
+}
