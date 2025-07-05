@@ -107,6 +107,7 @@ const Application = () => {
             criminalHistoryExplain: formData.criminalHistoryExplain || "",
             backgroundCheck: formData.backgroundCheck || "",
             medicalConditions: formData.medicalConditions || "",
+            medicalConditionsExplain: formData.medicalConditionsExplain || "",
           }}
           validationSchema={Yup.object({
             fullName: Yup.string().required("Required"),
@@ -137,7 +138,13 @@ const Application = () => {
               otherwise: () => Yup.string(),
             }),
             backgroundCheck: Yup.string().required("Please select an option"),
-            medicalConditions: Yup.string().required("Required"),
+            medicalConditions: Yup.string().required("Please select an option"),
+            medicalConditionsExplain: Yup.string().when("medicalConditions", {
+              is: "yes",
+              then: () =>
+                Yup.string().required("Please specify any medical conditions"),
+              otherwise: () => Yup.string(),
+            }),
           })}
           onSubmit={(values) => nextStep(values)}
         >
@@ -333,15 +340,31 @@ const Application = () => {
             />
 
             <label>
-              Do you have any medical conditions past or present? Please specify{" "}
+              Do you have any medical conditions past or present?{" "}
               <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="medicalConditions" as="textarea" />
+            <label>
+              <Field name="medicalConditions" type="radio" value="yes" /> Yes
+            </label>
+            <label>
+              <Field name="medicalConditions" type="radio" value="no" /> No
+            </label>
             <ErrorMessage
               name="medicalConditions"
               component="div"
               style={{ color: "red" }}
             />
+
+            <label>
+              If yes, please specify any medical conditions:
+            </label>
+            <Field name="medicalConditionsExplain" as="textarea" />
+            <ErrorMessage
+              name="medicalConditionsExplain"
+              component="div"
+              style={{ color: "red" }}
+            />
+
 
             <p style={{ marginTop: "25px" }}>
               (Note: No applicant will be denied employment solely on the
@@ -855,8 +878,13 @@ const Application = () => {
             employerAddress: Yup.string().required("Required"),
             employerPhone: Yup.string().required("Required"),
             employmentStart: Yup.date().required("Required"),
-            employmentEnd: Yup.date().required("Required"),
-            reasonForLeaving: Yup.string().required("Required"),
+            employmentEnd: Yup.date(),
+            reasonForLeaving: Yup.string().when("employementEnd", {
+              is: true,
+              then: () =>
+                Yup.string().required("Please specify your reason for leaving"),
+              otherwise: () => Yup.string(),
+            }),
             reference1Name: Yup.string().required("Required"),
             reference1Phone: Yup.string().required("Required"),
             reference1Relationship: Yup.string().required("Required"),
@@ -940,7 +968,7 @@ const Application = () => {
             />
 
             <label>
-              Reason for Leaving <span style={{ color: "red" }}>*</span>
+              Reason for Leaving {formData.employmentEnd && <span style={{ color: "red" }}>*</span>}
             </label>
             <Field name="reasonForLeaving" as="textarea" />
             <ErrorMessage
