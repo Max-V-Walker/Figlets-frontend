@@ -151,6 +151,10 @@ const Application = () => {
           <Form className={styles["application-form"]}>
             <Field name="formDate" type="hidden" />
 
+            <h2 className={styles["education-training-header"]}>
+              Applicant Information
+            </h2>
+
             <label>
               Full Name <span style={{ color: "red" }}>*</span>
             </label>
@@ -426,6 +430,9 @@ const Application = () => {
           onSubmit={(values) => nextStep(values)}
         >
           <Form className={styles["application-form"]}>
+            <h2 className={styles["education-training-header"]}>
+              Employment Position
+            </h2>
             <label>
               Position Applying For <span style={{ color: "red" }}>*</span>
             </label>
@@ -623,7 +630,6 @@ const Application = () => {
             highschoolName: formData.highschoolName || "",
             highschoolLocation: formData.highschoolLocation || "",
             highschoolYearGraduated: formData.highschoolYearGraduated || "",
-            highschoolDegreeEarned: formData.highschoolDegreeEarned || "",
             collegeName: formData.collegeName || "",
             collegeLocation: formData.collegeLocation || "",
             collegeYearGraduated: formData.collegeYearGraduated || "",
@@ -671,12 +677,15 @@ const Application = () => {
           onSubmit={(values) => nextStep(values)}
         >
           <Form className={styles["application-form"]}>
+            <h2 className={styles["education-training-header"]}>
+              Job Skills/Qualifications
+            </h2>
             <label>
               Please list below the skils and qualifications you possess for the
               position for which you are applying{" "}
               <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="jobSkillsQualification" type="text" />
+            <Field name="jobSkillsQualification" as="textarea" />
             <ErrorMessage
               name="jobSkillsQualification"
               component="div"
@@ -713,14 +722,6 @@ const Application = () => {
             <Field name="highschoolYearGraduated" type="text" />
             <ErrorMessage
               name="highschoolYearGraduated"
-              component="div"
-              style={{ color: "red" }}
-            />
-
-            <label>Highschool degree earned</label>
-            <Field name="highschoolDegreeEarned" type="text" />
-            <ErrorMessage
-              name="highschoolDegreeEarned"
               component="div"
               style={{ color: "red" }}
             />
@@ -856,14 +857,22 @@ const Application = () => {
       {step === 4 && (
         <Formik
           initialValues={{
-            employerName: formData.employerName || "",
-            jobTitle: formData.jobTitle || "",
-            supervisorName: formData.supervisorName || "",
-            employerAddress: formData.employerAddress || "",
-            employerPhone: formData.employerPhone || "",
-            employmentStart: formData.employmentStart || "",
-            employmentEnd: formData.employmentEnd || "",
-            reasonForLeaving: formData.reasonForLeaving || "",
+            employer1Name: formData.employer1Name || "",
+            job1Title: formData.job1Title || "",
+            supervisor1Name: formData.supervisor1Name || "",
+            employer1Address: formData.employer1Address || "",
+            employer1Phone: formData.employer1Phone || "",
+            employment1Start: formData.employment1Start || "",
+            employment1End: formData.employment1End || "",
+            reasonForLeaving1: formData.reasonForLeaving1 || "",
+            employer2Name: formData.employer2Name || "",
+            job2Title: formData.job2Title || "",
+            supervisor2Name: formData.supervisor2Name || "",
+            employer2Address: formData.employer2Address || "",
+            employer2Phone: formData.employer2Phone || "",
+            employment2Start: formData.employment2Start || "",
+            employment2End: formData.employment2End || "",
+            reasonForLeaving2: formData.reasonForLeaving2 || "",
             reference1Name: formData.reference1Name || "",
             reference1Phone: formData.reference1Phone || "",
             reference1Relationship: formData.reference1Relationship || "",
@@ -872,15 +881,28 @@ const Application = () => {
             reference2Relationship: formData.reference2Relationship || "",
           }}
           validationSchema={Yup.object({
-            employerName: Yup.string().required("Required"),
-            jobTitle: Yup.string().required("Required"),
-            supervisorName: Yup.string().required("Required"),
-            employerAddress: Yup.string().required("Required"),
-            employerPhone: Yup.string().required("Required"),
-            employmentStart: Yup.date().required("Required"),
-            employmentEnd: Yup.date(),
-            reasonForLeaving: Yup.string().when("employementEnd", {
-              is: true,
+            employer1Name: Yup.string().required("Required"),
+            job1Title: Yup.string().required("Required"),
+            supervisor1Name: Yup.string().required("Required"),
+            employer1Address: Yup.string().required("Required"),
+            employer1Phone: Yup.string().required("Required"),
+            employment1Start: Yup.date().required("Required"),
+            employment1End: Yup.date(),
+            reasonForLeaving1: Yup.string().when("employment1End", {
+              is: (val) => !!val, // Converts any non-empty value to true,
+              then: () =>
+                Yup.string().required("Please specify your reason for leaving"),
+              otherwise: () => Yup.string(),
+            }),
+            employer2Name: Yup.string(),
+            job2Title: Yup.string(),
+            supervisor2Name: Yup.string(),
+            employer2Address: Yup.string(),
+            employer2Phone: Yup.string(),
+            employment2Start: Yup.date(),
+            employment2End: Yup.date(),
+            reasonForLeaving2: Yup.string().when("employment2End", {
+              is: (val) => !!val, // Converts any non-empty value to true,
               then: () =>
                 Yup.string().required("Please specify your reason for leaving"),
               otherwise: () => Yup.string(),
@@ -895,14 +917,16 @@ const Application = () => {
           onSubmit={(values) => nextStep(values)}
         >
           <Form className={styles["application-form"]}>
-            <h3 style={{ marginTop: "15px" }}>Employment History</h3>
+            <h2 className={styles["education-training-header"]}>
+              Employment History
+            </h2>
 
             <label>
               Employer Name <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="employerName" type="text" />
+            <Field name="employer1Name" type="text" />
             <ErrorMessage
-              name="employerName"
+              name="employer1Name"
               component="div"
               style={{ color: "red" }}
             />
@@ -910,9 +934,9 @@ const Application = () => {
             <label>
               Job Title <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="jobTitle" type="text" />
+            <Field name="job1Title" type="text" />
             <ErrorMessage
-              name="jobTitle"
+              name="job1Title"
               component="div"
               style={{ color: "red" }}
             />
@@ -920,9 +944,9 @@ const Application = () => {
             <label>
               Supervisor name <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="supervisorName" type="text" />
+            <Field name="supervisor1Name" type="text" />
             <ErrorMessage
-              name="supervisorName"
+              name="supervisor1Name"
               component="div"
               style={{ color: "red" }}
             />
@@ -930,9 +954,9 @@ const Application = () => {
             <label>
               Employer address <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="employerAddress" type="text" />
+            <Field name="employer1Address" type="text" />
             <ErrorMessage
-              name="employerAddress"
+              name="employer1Address"
               component="div"
               style={{ color: "red" }}
             />
@@ -940,9 +964,9 @@ const Application = () => {
             <label>
               Employer telephone <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="employerPhone" type="text" />
+            <Field name="employer1Phone" type="text" />
             <ErrorMessage
-              name="employerPhone"
+              name="employer1Phone"
               component="div"
               style={{ color: "red" }}
             />
@@ -950,34 +974,116 @@ const Application = () => {
             <label>
               Start Date <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="employmentStart" type="date" />
+            <Field name="employment1Start" type="date" />
             <ErrorMessage
-              name="employmentStart"
+              name="employment1Start"
               component="div"
               style={{ color: "red" }}
             />
 
             <label>
-              End Date <span style={{ color: "red" }}>*</span>
+              End Date
             </label>
-            <Field name="employmentEnd" type="date" />
+            <Field name="employment1End" type="date" />
             <ErrorMessage
-              name="employmentEnd"
+              name="employment1End"
               component="div"
               style={{ color: "red" }}
             />
 
             <label>
-              Reason for Leaving {formData.employmentEnd && <span style={{ color: "red" }}>*</span>}
+              Reason for Leaving {formData.employment1End && <span style={{ color: "red" }}>*</span>}
             </label>
-            <Field name="reasonForLeaving" as="textarea" />
+            <Field name="reasonForLeaving1" as="textarea" />
             <ErrorMessage
-              name="reasonForLeaving"
+              name="reasonForLeaving1"
+              component="div"
+              style={{ color: "red" }}
+            />
+            {/* Employment 2 */}
+            <label>
+              Employer Name
+            </label>
+            <Field name="employer2Name" type="text" />
+            <ErrorMessage
+              name="employer2Name"
               component="div"
               style={{ color: "red" }}
             />
 
-            <h3 style={{ marginTop: "25px" }}>References</h3>
+            <label>
+              Job Title
+            </label>
+            <Field name="job2Title" type="text" />
+            <ErrorMessage
+              name="job2Title"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <label>
+              Supervisor name
+            </label>
+            <Field name="supervisor2Name" type="text" />
+            <ErrorMessage
+              name="supervisor2Name"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <label>
+              Employer address
+            </label>
+            <Field name="employer2Address" type="text" />
+            <ErrorMessage
+              name="employer2Address"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <label>
+              Employer telephone
+            </label>
+            <Field name="employer2Phone" type="text" />
+            <ErrorMessage
+              name="employer2Phone"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <label>
+              Start Date
+            </label>
+            <Field name="employment2Start" type="date" />
+            <ErrorMessage
+              name="employment2Start"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <label>
+              End Date
+            </label>
+            <Field name="employment2End" type="date" />
+            <ErrorMessage
+              name="employment2End"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <label>
+              Reason for Leaving {formData.employment2End && <span style={{ color: "red" }}>*</span>}
+            </label>
+            <Field name="reasonForLeaving2" as="textarea" />
+            <ErrorMessage
+              name="reasonForLeaving2"
+              component="div"
+              style={{ color: "red" }}
+            />
+
+            <h2 className={styles["education-training-header"]}>
+              Applicant Information
+            </h2>
 
             <label>
               Reference 1 Name <span style={{ color: "red" }}>*</span>
@@ -1064,7 +1170,9 @@ const Application = () => {
           onSubmit={(values) => finalSubmission(values)}
         >
           <Form className={styles["application-form"]}>
-            <h3 style={{ marginTop: "20px" }}>Certification</h3>
+          <h2 className={styles["education-training-header"]}>
+              Certification
+            </h2>
             <p>
               I certify that the information provided on this application is
               true and correct. I understand that providing false or misleading

@@ -1,7 +1,5 @@
 .contact-form-container {
   /* border: 4px solid red; */
-  /* width: 100vw; */
-  /* background-color: #0047ab; */
   font-family: "Stardos Stencil", system-ui;
 }
 
@@ -52,7 +50,7 @@
 .contact-form div textarea {
   /* border: 2px solid blue; */
   resize: none;
-  width: 95%;
+  width: 100%;
   height: 200px;
   padding: 5px;
 }
@@ -82,9 +80,13 @@
 @media (min-width: 768px) {
   .contact-form-container h2 {
     /* border: 2px solid royalblue; */
+    padding: 20px;
     text-align: center;
-    margin-top: 20px;
+    color: white;
+    background-color: #0047ab;
+    background-color: rgba(0, 71, 171, .85);
   }
+
   .contact-form {
     width: 70%;
     margin: 10px auto 25px;

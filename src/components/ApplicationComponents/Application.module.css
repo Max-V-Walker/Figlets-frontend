@@ -49,6 +49,7 @@
 
 .application-form label {
   font-weight: 600;
+  max-width: 90%;
 }
 
 .application-form label:not(:has(input)) {
@@ -110,7 +111,7 @@
 }
 
 .education-training-header {
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
   width: fit-content;
   margin: 15px 0 -10px;
   font-size: 1.3rem;
@@ -144,6 +145,11 @@
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 /* Desktop design */
 @media (min-width: 768px) {
+  .application-form-container {
+    background-color: rgba(0, 71, 171, .8);
+    color: white;
+  }
+
   .application-intro-text {
     /* color: blue; */
     max-width: 40%;
@@ -151,6 +157,10 @@
   
   .application-form {
     /* border: 2px solid red; */
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
     max-width: 65%;
   }
   
@@ -158,11 +168,12 @@
     /* border: 2px solid red; */
     max-width: 65%;
     margin: 0 auto;
+    color: white;
   }
   
   .step-count + p {
     /* color: red; */
     max-width: 65%;
-    margin: 0 auto;
+    margin: 0 auto 10px;
   }
 }
