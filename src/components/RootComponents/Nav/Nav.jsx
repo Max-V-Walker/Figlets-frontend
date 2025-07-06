@@ -32,12 +32,12 @@ const Nav = () => {
       >
         Reviews
       </a>
-      <a
-        href="#services"
+      <NavLink
+        to="/our-services"
         onClick={() => setIsBurgerClicked(false)}
       >
         Services
-      </a>
+      </NavLink>
       <NavLink
         to="/contact-us"
         onClick={() => setIsBurgerClicked(false)}
@@ -65,7 +65,7 @@ const Nav = () => {
     <div className={styles["desktop-nav-container"]}>
       <Link to="/about-us">About</Link>
       <a href="#reviews">Reviews</a>
-      <a href="#services">Services</a>
+      <Link to="/our-services">Services</Link>
       <Link to="/contact-us">Contact</Link>
       <Link to="/apply-now" className={styles["apply-now"]}>
         Apply Now

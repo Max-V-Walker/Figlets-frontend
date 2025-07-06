@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import styles from "./Services.module.css";
 
 import BathroomServiceImg from "../../../assets/images/bathroom-service.png";
@@ -11,22 +13,22 @@ const Services = () => {
         <section className={styles["services-container"]} id="services">
             <h2>Services</h2>
             <div className={styles.services}>
-                <div className={styles.service}>
+                <Link to="/our-services" className={styles.service}>
                     <img src={BathroomServiceImg} alt="Bathroom Services" />
                     <p>Bathrooms</p>
-                </div>
-                <div className={styles.service}>
+                </Link>
+                <Link to="/our-services" className={styles.service}>
                     <img src={KitchenServiceImg} alt="Kitchen Services" />
                     <p>Kitchens</p>
-                </div>
-                <div className={styles.service}>
+                </Link>
+                <Link to="/our-services" className={styles.service}>
                     <img src={FencingServiceImg} alt="Fencing, Deck, & Concrete Services" />
                     <p>Fencing, Decks, & Concrete</p>
-                </div>
-                <div className={styles.service}>
+                </Link>
+                <Link to="/our-services" className={styles.service}>
                     <img src={DumpsterServiceImg} alt="Dumpster & Demolition Services" />
                     <p>Dumpster & Demolition</p>
-                </div>
+                </Link>
             </div>
         </section>
     );

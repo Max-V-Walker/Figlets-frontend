@@ -8,6 +8,7 @@ import ApplicationPage from "./pages/ApplicationPage/ApplicationPage";
 import Banner from "./components/RootComponents/Banner/Banner";
 import Nav from "./components/RootComponents/Nav/Nav";
 import Footer from "./components/RootComponents/Footer/Footer";
+import ServicesPage from "./pages/ServicesPage/ServicesPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route  path="/about-us" element={<AboutPage />} />
         <Route  path="/contact-us" element={<ContactPage />} />
         <Route  path="/apply-now" element={<ApplicationPage />} />
+        <Route  path="/our-services" element={<ServicesPage />} />
       </Routes>
       <Footer />
     </>
