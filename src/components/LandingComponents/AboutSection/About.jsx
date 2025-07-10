@@ -2,7 +2,6 @@ import { NavLink } from "react-router";
 
 import styles from "./About.module.css";
 
-import AboutPhoto from "../../../assets/images/about-us.png";
 import FigletsIcon from "../../../assets/icons/figlets-icon.png";
 import IGIcon from "../../../assets/icons/instagram-icon.png";
 import FBIcon from "../../../assets/icons/facebook-icon.png";
@@ -29,9 +28,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* <div className={styles["about-image"]}>
-        <img src={AboutPhoto} alt="About image" />
-      </div> */}
     </section>
   );
 };

@@ -1,0 +1,213 @@
+.modal-overlay {
+  /* border: 5px solid red; */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.modal-content {
+  /* border: 5px solid royalblue; */
+  background: white;
+  padding: 25px 15px;
+  border-radius: 10px;
+  width: 90%;
+  height: 90vh;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0047ab;
+}
+
+.project-title {
+  /* border: 2px solid red; */
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.project-description {
+  /* border: 2px solid royalblue; */
+  font-size: 1.1rem;
+  line-height: 21px;
+  text-align: left;
+  margin: 0 auto;
+  /* max-width: 90%; */
+}
+
+.project-time {
+  /* border: 2px solid green; */
+  margin-top: 5px;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.image-carousel {
+  /* border: 2px solid royalblue; */
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 15px;
+}
+
+.carousel-image {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 375px;
+  object-fit: contain;
+  /* object-fit: cover; */
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.navigate-buttons-container {
+  /* border: 4px solid red; */
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.arrowBtn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid #0047ab;
+  /* font-size: 2.5rem; */
+  cursor: pointer;
+  margin-top: 10px;
+  margin: 10px auto 0;
+  padding: 0 10px;
+  color: #0047ab;
+}
+
+.arrow {
+  font-size: 2.5rem;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+/* Desktop design */
+@media (min-width: 768px) {
+  .modal-content {
+    /* border: 5px solid black; */
+    width: 1200px;
+    max-width: 1200px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+
+  .project-title {
+    /* border: 2px solid red; */
+    margin: 5px 0 15px;
+    font-size: 1.8rem;
+  }
+
+  .project-description {
+    /* border: 2px solid royalblue; */
+    width: 900px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .project-time {
+    /* border: 2px solid green; */
+    margin-top: 5px;
+  }
+
+  .image-carousel {
+    /* border: 3px solid royalblue; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    border-radius: 10px;
+  }
+
+  .carousel-image {
+    /* border: 3px solid red; */
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: none;
+  }
+
+  .arrowBtn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    border-bottom: none;
+    transition: color 0.2s ease, background .2s ease;
+  }
+  
+  .arrowBtn:hover {
+    color: #0047ab;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .arrowBtn.left {
+    left: 1rem;
+  }
+
+  .arrowBtn.right {
+    right: 1rem;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    padding: 5px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    border: 2px solid #0047ab;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #0047ab;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .closeBtn:hover {
+    box-shadow: 0 0 4px #0047ab;
+  }
+}

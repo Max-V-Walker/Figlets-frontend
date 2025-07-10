@@ -57,18 +57,6 @@ const FooterComponent = () => {
             </i>
             8:00 am - 6:00 pm
           </li>
-          {/* <li>
-            <i>
-              <BiCalendar />
-            </i>
-            Saturday
-          </li>
-          <li>
-            <i>
-              <FaRegClock />
-            </i>
-            8:00 am - 3:00 pm
-          </li> */}
           <li>
             <a href={reviewsUrl} target="_blank">
               <i>
@@ -78,28 +66,25 @@ const FooterComponent = () => {
             </a>
           </li>
           <div className={styles["footer-socials"]}>
-            <li>
-              <a
-                href="https://www.instagram.com/figletsconstruction/"
-                target="_blank"
-              >
-                {/* <img src={InstagramLogo} alt="Instagram logo" /> */}
-                <AiOutlineInstagram className={styles["footer-social"]}/>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/figlets/" target="_blank">
-                {/* <img src={FacebookLogo} alt="Facebook logo" /> */}
-                <AiFillFacebook className={styles["footer-social"]}/>
-              </a>
-            </li>
-            {/* <p className={styles["apply-now"]}>
-              <Link to="/apply-now">Apply Now</Link>
-            </p> */}
+            <h4>Follow For More Projects!</h4>
+            <div>
+              <li>
+                <a
+                  href="https://www.instagram.com/figletsconstruction/"
+                  target="_blank"
+                >
+                  <AiOutlineInstagram className={styles["footer-social"]} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/figlets/" target="_blank">
+                  <AiFillFacebook className={styles["footer-social"]} />
+                </a>
+              </li>
+            </div>
           </div>
         </ul>
       </div>
-      {/* <p className={styles["apply-now"]}><Link to="/apply-now">Apply Now</Link></p> */}
     </footer>
   );
 };

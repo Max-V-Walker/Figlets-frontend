@@ -1,6 +1,14 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .application-form-container {
-  /* border: 3px solid royalblue; */
+  /* border: 5px solid red; */
   padding: 25px 10px;
+  background-color: rgba(0, 71, 171, 0.85);
+  color: white;
   font-family: "Stardos Stencil", system-ui;
 }
 
@@ -29,22 +37,28 @@
 
 .application-header-content h2 {
   font-size: 1.2rem;
-
 }
 
 .application-intro-text {
   /* border: 1px solid red; */
-  margin: 15px auto;
+  width: 90%;
+  margin: 15px auto 30px;
   font-size: 1.1rem;
   text-align: center;
 }
 
 .application-form {
   /* border: 3px solid red; */
-  margin: 0 auto;
+  margin: 10px auto 0;
   /* margin-top: 40px; */
   display: flex;
   flex-direction: column;
+
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
 }
 
 .application-form label {
@@ -68,10 +82,7 @@
 }
 
 .application-form label input[type="radio"] {
-  /* width: 150px; */
   color: red;
-  /* margin-bottom: 10px; */
-  /* margin-top: 0; */
 }
 
 .application-form textarea {
@@ -80,6 +91,26 @@
   width: 95%;
   height: 115px;
   padding: 5px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-clip: padding-box;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  display: block;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+.application-form input {
+  transform: translateZ(0);
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-clip: padding-box;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  display: block;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 .step-button-container {
@@ -106,7 +137,8 @@
 }
 
 .step-count {
-  color: #0047ab;
+  /* color: #0047ab; */
+  color: white;
   font-size: 1.4rem;
 }
 
@@ -146,34 +178,71 @@
 /* Desktop design */
 @media (min-width: 768px) {
   .application-form-container {
-    background-color: rgba(0, 71, 171, .8);
+    /* background-color: rgba(0, 71, 171, 0.8); */
+    background-color: rgba(0, 71, 171, 0.85);
     color: white;
   }
 
   .application-intro-text {
+    /* border: 3px solid red; */
     /* color: blue; */
+    width: 30%;
     max-width: 40%;
   }
-  
+
   .application-form {
-    /* border: 2px solid red; */
+    /* border: 5px solid red; */
     padding: 10px 20px;
     border-radius: 5px;
     color: black;
     background-color: white;
-    max-width: 65%;
+    width: 750px;
+    max-width: 750px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
   }
-  
+
+  .application-form label {
+    /* color: red; */
+  }
+
+  .application-form label input[type="radio"] {
+    border: 2px solid black;
+  }
+
+  .application-form label:not(:has(input)) {
+    /* color: red; */
+    margin-top: 30px;
+  }
+
+  .signature-canvas {
+    width: 600px;
+    max-width: 600px;
+  }
+
+  .thank-you-for-applying {
+    /* border: 2px solid red; */
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 600px;
+    height: 350px;
+    margin: 45px auto;
+
+    /* background-color: white; */
+  }
+
   .step-count {
     /* border: 2px solid red; */
-    max-width: 65%;
+    width: 800px;
+    /* max-width: 55%; */
     margin: 0 auto;
     color: white;
   }
-  
+
   .step-count + p {
     /* color: red; */
-    max-width: 65%;
+    width: 800px;
     margin: 0 auto 10px;
   }
 }

@@ -5,12 +5,14 @@
   align-items: center;
   padding: 20px;
   background-color: #c8c5c5;
+  background-color: #fdfaf7;
   font-family: "Stardos Stencil", system-ui;
 }
 
 .about-page-container > div:nth-child(1) > h1 {
   font-size: 2rem;
-  color: rgb(60, 59, 59);
+  /* color: rgb(60, 59, 59); */
+  color: #1a1a1a;
   margin: 15px 0;
 }
 
@@ -28,10 +30,13 @@
 
 .about-card {
   /* border: 3px solid royalblue; */
+  /* border: 2px solid black; */
+  border-bottom: 2px solid #eae7e2;
 }
 
 .about-card h3 {
   color: rgb(60, 59, 59);
+  color: #1a1a1a;
   /* color: #0047ab; */
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -41,7 +46,7 @@
 
 .about-card p {
   /* border: 2px solid red; */
-  color: rgb(84, 82, 82);
+  color: #2c2c2c;
   font-size: 18px;
   max-width: 550px;
 }
@@ -50,7 +55,7 @@
 /* Desktop design */
 @media (min-width: 768px) {
   .about-page-container {
-    padding: 20px 40px;
+    padding: 40px 60px;
   }
 
   .about-page-container > :first-child {
@@ -59,7 +64,7 @@
 
   .about-page-container > div:nth-child(1) > h1 {
     font-size: 3rem;
-    color: rgb(60, 59, 59);
+    color: #1a1a1a;
     margin: 30px 0 -15px 30px;
   }
 
@@ -71,12 +76,12 @@
   .about-page-content {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 45px;
   }
 
   .about-page-content > div:nth-child(1) {
     display: flex;
-    gap: 25px;
+    gap: 45px;
   }
 
   .about-page-content > div:nth-child(2) {
@@ -86,7 +91,8 @@
     gap: 25px;
   }
 
-  .about-card {
+  .about-card h3 {
     /* border: 3px solid royalblue; */
+    width: 75%;
   }
 }

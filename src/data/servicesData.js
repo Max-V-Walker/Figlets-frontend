@@ -4,8 +4,8 @@ const servicesData = [
         service: "Kitchen",
         projects: [
             {
-                title: "Open Concept Upgrade with Hidden Beam & Patio Door Relocation",
-                description: "This transformation was a nice one. We removed a load bearing wall and installed a flush mount beam to not have a visible header. Moved the patio door over as well and everything from the floor to the ceiling",
+                title: "Beam & Door Relocation",
+                description: "We removed a load bearing wall and installed a flush mount beam to not have a visible header. Moved the patio door over as well and everything from the floor to the ceiling.",
                 time: "May '25",
                 location: "NJ",
                 images: [
@@ -19,7 +19,7 @@ const servicesData = [
             },
             {
                 title: "Kitchen/Dining Room Remodel",
-                description: "Here’s another great transformation I was given the opportunity to do from demolition to finish and it came out beautiful, homeowners were extremely happy. We demolished the old kitchen and removed the wall between the two rooms to give it a more open concept. We removed and insulated the exterior wall, got them some new electrical from outlets to lights. Added a dishwasher, new cabinets with crown moldings to the ceiling, and new floors!",
+                description: "We opened up the space by removing the wall and old kitchen. Added new insulation, lighting, and outlets. Installed a dishwasher, custom cabinets with crown molding, and brand-new floors.",
                 time: "November '24",
                 location: "Sayreville, NJ",
                 images: [

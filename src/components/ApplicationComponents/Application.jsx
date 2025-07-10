@@ -69,7 +69,10 @@ const Application = () => {
             Figlet’s Construction LLC is an equal opportunity employer. This
             application will not be used for limiting or excluding any applicant
             from consideration for employment on a basis prohibited by local,
-            state, or federal law. Should an applicant need reasonable
+            state, or federal law.
+            <br/>
+            <br/>
+            Should an applicant need reasonable
             accommodation in the application process, he or she should contact a
             company representative.
           </p>
@@ -217,10 +220,10 @@ const Application = () => {
               Smoker? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="smoker" type="radio" value="yes" /> Yes
+              <Field name="smoker" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="smoker" type="radio" value="no" /> No
+              <Field name="smoker" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="smoker"
@@ -233,10 +236,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="citizenship" type="radio" value="yes" /> Yes
+              <Field name="citizenship" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="citizenship" type="radio" value="no" /> No
+              <Field name="citizenship" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="citizenship"
@@ -249,10 +252,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="proofOfCitizenship" type="radio" value="yes" /> Yes
+              <Field name="proofOfCitizenship" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="proofOfCitizenship" type="radio" value="no" /> No
+              <Field name="proofOfCitizenship" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="proofOfCitizenship"
@@ -265,10 +268,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="drugTest" type="radio" value="yes" /> Yes
+              <Field name="drugTest" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="drugTest" type="radio" value="no" /> No
+              <Field name="drugTest" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="drugTest"
@@ -281,10 +284,10 @@ const Application = () => {
               accommodations? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="accommodations" type="radio" value="yes" /> Yes
+              <Field name="accommodations" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="accommodations" type="radio" value="no" /> No
+              <Field name="accommodations" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="accommodations"
@@ -305,10 +308,10 @@ const Application = () => {
               misdemeanor)? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="criminalHistory" type="radio" value="yes" /> Yes
+              <Field name="criminalHistory" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="criminalHistory" type="radio" value="no" /> No
+              <Field name="criminalHistory" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="criminalHistory"
@@ -332,10 +335,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="backgroundCheck" type="radio" value="yes" /> Yes
+              <Field name="backgroundCheck" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="backgroundCheck" type="radio" value="no" /> No
+              <Field name="backgroundCheck" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="backgroundCheck"
@@ -348,10 +351,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="medicalConditions" type="radio" value="yes" /> Yes
+              <Field name="medicalConditions" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="medicalConditions" type="radio" value="no" /> No
+              <Field name="medicalConditions" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="medicalConditions"
@@ -458,10 +461,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="monThroughFri" type="radio" value="yes" /> Yes
+              <Field name="monThroughFri" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="monThroughFri" type="radio" value="no" /> No
+              <Field name="monThroughFri" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="monThroughFri"
@@ -474,10 +477,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="overtime" type="radio" value="yes" /> Yes
+              <Field name="overtime" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="overtime" type="radio" value="no" /> No
+              <Field name="overtime" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="overtime"
@@ -490,10 +493,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="oddExtensiveHours" type="radio" value="yes" /> Yes
+              <Field name="oddExtensiveHours" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="oddExtensiveHours" type="radio" value="no" /> No
+              <Field name="oddExtensiveHours" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="oddExtensiveHours"
@@ -506,10 +509,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="weekends" type="radio" value="yes" /> Yes
+              <Field name="weekends" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="weekends" type="radio" value="no" /> No
+              <Field name="weekends" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="weekends"
@@ -532,11 +535,11 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="reliableTransportation" type="radio" value="yes" />{" "}
+              <Field name="reliableTransportation" type="radio" value="yes" style={{display: "inline"}}/>
               Yes
             </label>
             <label>
-              <Field name="reliableTransportation" type="radio" value="no" /> No
+              <Field name="reliableTransportation" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="reliableTransportation"
@@ -549,10 +552,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="liftWeight" type="radio" value="yes" /> Yes
+              <Field name="liftWeight" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="liftWeight" type="radio" value="no" /> No
+              <Field name="liftWeight" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="liftWeight"
@@ -565,10 +568,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="machineryExperience" type="radio" value="yes" /> Yes
+              <Field name="machineryExperience" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="machineryExperience" type="radio" value="no" /> No
+              <Field name="machineryExperience" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="machineryExperience"
@@ -589,10 +592,10 @@ const Application = () => {
               exceed up to 4 hours? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="faceMasks" type="radio" value="yes" /> Yes
+              <Field name="faceMasks" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="faceMasks" type="radio" value="no" /> No
+              <Field name="faceMasks" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="faceMasks"
@@ -797,10 +800,10 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="memberOfArmedService" type="radio" value="yes" /> Yes
+              <Field name="memberOfArmedService" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="memberOfArmedService" type="radio" value="no" /> No
+              <Field name="memberOfArmedService" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="memberOfArmedService"
@@ -818,10 +821,10 @@ const Application = () => {
 
             <label>Are you still active? </label>
             <label>
-              <Field name="militaryStillActive" type="radio" value="yes" /> Yes
+              <Field name="militaryStillActive" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
-              <Field name="militaryStillActive" type="radio" value="no" /> No
+              <Field name="militaryStillActive" type="radio" value="no" style={{display: "inline"}}/> No
             </label>
             <ErrorMessage
               name="militaryStillActive"
@@ -1206,7 +1209,7 @@ const Application = () => {
 
             <br />
             <label>
-              <Field type="checkbox" name="certificationAgreed" /> I HAVE
+              <Field type="checkbox" name="certificationAgreed" style={{display: "inline"}} /> I HAVE
               CAREFULLY READ THE ABOVE CERTIFICATION AND I UNDERSTAND AND AGREE
               TO ITS TERMS.
             </label>

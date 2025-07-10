@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Link  } from "react-router-dom";
 
 import styles from "./Nav.module.css";
 
@@ -19,45 +19,22 @@ const Nav = () => {
       }`}
     >
       <button onClick={() => setIsBurgerClicked(false)}>X</button>
-      <NavLink
-        to="/about-us"
-        onClick={() => setIsBurgerClicked(false)}
-        className={({ isActive }) => (isActive ? styles["active-link"] : "")}
-      >
+      <Link to="/about-us" onClick={() => setIsBurgerClicked(false)}>
         About
-      </NavLink>
-      <a
-        href="#reviews"
-        onClick={() => setIsBurgerClicked(false)}
-      >
+      </Link>
+      <a href="#reviews" onClick={() => setIsBurgerClicked(false)}>
         Reviews
       </a>
-      <NavLink
-        to="/our-services"
-        onClick={() => setIsBurgerClicked(false)}
-      >
+      <Link to="/our-services" onClick={() => setIsBurgerClicked(false)}>
         Services
-      </NavLink>
-      <NavLink
-        to="/contact-us"
-        onClick={() => setIsBurgerClicked(false)}
-        className={({ isActive }) => (isActive ? styles["active-link"] : "")}
-      >
+      </Link>
+      <Link to="/contact-us" onClick={() => setIsBurgerClicked(false)}>
         Contact
-      </NavLink>
-      <NavLink
-        to="/apply-now"
-        onClick={() => setIsBurgerClicked(false)}
-        className={({ isActive }) => (isActive ? styles["active-link"] : "")}
-      >
+      </Link>
+      <Link to="/apply-now" onClick={() => setIsBurgerClicked(false)}>
         Apply Now
-      </NavLink>
-      <NavLink
-        to="/contact-us"
-        className={({ isActive }) => (isActive ? styles["active-link"] : "")}
-      >
-        Get A Quote
-      </NavLink>
+      </Link>
+      <Link to="/contact-us">Get A Quote</Link>
     </div>
   );
 
