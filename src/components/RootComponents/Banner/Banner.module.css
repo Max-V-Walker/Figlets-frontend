@@ -79,8 +79,12 @@
 @media (min-width: 768px) {
   .promo-banner-container {
     justify-content: space-around;
-   
   }
+
+  .show-banner {
+    height: 45px;
+  }
+
   .promo-banner-container p:nth-child(1) {
     display: inline-block;
   }
