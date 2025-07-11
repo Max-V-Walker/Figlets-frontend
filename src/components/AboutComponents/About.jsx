@@ -14,7 +14,7 @@ const About = () => {
       <div className={styles["about-page-content"]}>
         <div>
           <div className={styles["about-card"]}>
-            <h3>welcome to figlet's construction llc</h3>
+            <h3>welcome to figlet's construction LLC</h3>
             <p>At Figlet's Construction LLC, our mission is simple: to provide homeowners with reliable, high-quality construction and renovation services at fair, honest prices. Founded in 2024, we’re committed to helping our community bring their home improvement projects to life. Our goal is to become the go-to name in the area for dependable craftsmanship and straightforward service.</p>
           </div>
           <div className={styles["about-card"]}>

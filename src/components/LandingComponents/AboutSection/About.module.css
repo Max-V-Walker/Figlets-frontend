@@ -4,7 +4,7 @@
   flex-direction: column;
   font-family: "Stardos Stencil", system-ui;
   background-color: #edebeb;
-  padding: 25px 0;
+  padding: 65px 0;
 }
 
 .about-information {
@@ -33,8 +33,8 @@
   /* border: 2px solid black; */
   width: 85vw;
   text-align: center;
-  font-size: 1.3rem;
-  margin-top: -1vw;
+  font-size: 4.8vw;
+  line-height: 1.6;
 }
 
 .spacer {
@@ -43,24 +43,24 @@
 }
 .about-links-container {
   /* border: 3px solid black; */
-  width: 80%;
+  width: 85%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin: 5vw 0;
+  margin: 5vw 0 0;
 }
 
 .about-links-container > a {
   text-decoration: none;
-  width: 25vw;
   width: 125px;
-  height: 45px;
+  height: 55px;
   color: white;
   background-color: #0047ab;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .about-links-container > div {
@@ -78,7 +78,7 @@
 .social-icon {
   /* border: 2px solid red; */
   width: 55px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   border-radius: 50%;
 }
 

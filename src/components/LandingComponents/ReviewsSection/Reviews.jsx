@@ -13,8 +13,11 @@ const ReviewSection = () => {
   const [rating, setRating] = useState(null);
   const [total, setTotal] = useState(0);
 
+  const baseURL = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    fetch("/api/google-reviews")
+    // fetch("/api/google-reviews")
+    fetch(`${baseURL}/google-reviews`)
       .then(res => res.json())
       .then(data => {
         setReviews(data.reviews || []);

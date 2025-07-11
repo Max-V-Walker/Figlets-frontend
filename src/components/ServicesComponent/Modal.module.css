@@ -111,7 +111,7 @@
     /* border: 5px solid black; */
     width: 1200px;
     max-width: 1200px;
-    height: 800px;
+    height: 750px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -128,7 +128,8 @@
 
   .project-description {
     /* border: 2px solid royalblue; */
-    width: 900px;
+    width: 700px;
+    /* max-width: 700px; 
     text-align: center;
     margin: 0 auto;
   }

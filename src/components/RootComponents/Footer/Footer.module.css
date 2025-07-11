@@ -20,7 +20,7 @@
 
 .map {
   width: 100%;
-  height: 300px;
+  height: 250px;
   margin: 20px 0;
 }
 
@@ -75,7 +75,7 @@
 
 .footer-socials div {
   /* border: 2px solid black; */
-  width: 35%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   margin: 10px auto;
@@ -94,21 +94,25 @@
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 @media (min-width: 768px) {
   .footer-container {
+    /* border: 3px solid red; */
     flex-direction: row;
     padding: 40px;
   }
 
   .footer-container > div {
+    /* border: 4px solid red; */
     width: 50%;
     min-width: 400px;
-    height: 100%;
+    max-width: 800px;
+    height: 500px;
   }
 
   .map {
-    /* border: 3px solid black; */
+    border: 3px solid black;
     /* width: 700px; */
     width: 50vw;
-    height: 500px;
+    max-width: 750px;
+    height: 100%;
     margin-bottom: 0;
   }
 

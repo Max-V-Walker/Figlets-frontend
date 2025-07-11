@@ -12,6 +12,8 @@ const Application = () => {
   const [step, setStep] = useState(1);
   const sigPadRef = useRef();
 
+  const baseURL = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_URL;
+
   const nextStep = (values) => {
     setFormData({ ...formData, ...values });
     setStep((preVal) => preVal + 1);
@@ -33,7 +35,7 @@ const Application = () => {
 
     console.log("Form submitted on frontend!..")
 
-    fetch("/api/submit-application", {
+    fetch(`${baseURL}/submit-application`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

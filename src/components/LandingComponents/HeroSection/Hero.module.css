@@ -41,7 +41,8 @@
   font-size: 40px;
   letter-spacing: -0.5px;
   line-height: 40px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+
 }
 
 .hero-content p {
@@ -89,7 +90,9 @@
 
   .hero-content {
     /* border: 3px solid red; */
-    margin-left: 25px;
+    max-width: 800px;
+    /* margin-left: 25px; */
+    margin-left: 8vw;
   }
 
   .hero-content h1 {

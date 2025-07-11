@@ -15,6 +15,7 @@ const servicesData = [
                     "/images/kitchen/project4/img4.jpg",
                     "/images/kitchen/project4/img5.jpg",
                     "/images/kitchen/project4/img6.jpg",
+                    "/images/kitchen/project4/img1.jpg",
                 ]
             },
             {
@@ -29,6 +30,7 @@ const servicesData = [
                     "/images/kitchen/project1/img4.jpg",
                     "/images/kitchen/project1/img5.jpg",
                     "/images/kitchen/project1/img6.jpg",
+                    "/images/kitchen/project1/img1.jpg",
                 ]
             },
             {
@@ -44,6 +46,7 @@ const servicesData = [
                     "/images/kitchen/project3/img5.jpg",
                     "/images/kitchen/project3/img6.jpg",
                     "/images/kitchen/project3/img7.jpg",
+                    "/images/kitchen/project3/img1.jpg",
                 ]
             },
             {
@@ -60,6 +63,7 @@ const servicesData = [
                     "/images/kitchen/project2/img6.jpg",
                     "/images/kitchen/project2/img7.jpg",
                     "/images/kitchen/project2/img8.jpg",
+                    "/images/kitchen/project2/img1.jpg",
                 ]
             },
         ]
@@ -81,6 +85,7 @@ const servicesData = [
                     "/images/bathroom/project5/img5.jpg",
                     "/images/bathroom/project5/img6.jpg",
                     "/images/bathroom/project5/img7.jpg",
+                    "/images/bathroom/project5/img1.jpg",
                 ]
             },
             {
@@ -98,6 +103,7 @@ const servicesData = [
                     "/images/bathroom/project1/img7.jpg",
                     "/images/bathroom/project1/img8.jpg",
                     "/images/bathroom/project1/img9.jpg",
+                    "/images/bathroom/project1/img1.jpg",
                 ]
             },
             {
@@ -127,6 +133,7 @@ const servicesData = [
                     "/images/bathroom/project3/img4.jpg",
                     "/images/bathroom/project3/img5.jpg",
                     "/images/bathroom/project3/img6.jpg",
+                    "/images/bathroom/project3/img1.jpg",
                 ]
             },
             {
@@ -141,6 +148,7 @@ const servicesData = [
                     "/images/bathroom/project4/img4.jpg",
                     "/images/bathroom/project4/img5.jpg",
                     "/images/bathroom/project4/img6.jpg",
+                    "/images/bathroom/project4/img1.jpg",
                 ]
             },
         ]
@@ -162,6 +170,7 @@ const servicesData = [
                     "/images/home/project7/img5.jpg",
                     "/images/home/project7/img6.jpg",
                     "/images/home/project7/img7.jpg",
+                    "/images/home/project7/img1.jpg",
                 ]
             },
             {
@@ -197,6 +206,7 @@ const servicesData = [
                     "/images/home/project6/img6.jpg",
                     "/images/home/project6/img7.jpg",
                     "/images/home/project6/img8.jpg",
+                    "/images/home/project6/img1.jpg",
                 ]
             },
             {
@@ -211,6 +221,7 @@ const servicesData = [
                     "/images/home/project4/img4.jpg",
                     "/images/home/project4/img5.jpg",
                     "/images/home/project4/img6.jpg",
+                    "/images/home/project4/img1.jpg",
                 ]
             },
             {
@@ -223,6 +234,7 @@ const servicesData = [
                     "/images/home/project3/img2.jpg",
                     "/images/home/project3/img3.jpg",
                     "/images/home/project3/img4.jpg",
+                    "/images/home/project3/img1.jpg",
                 ]
             },
             {
@@ -235,6 +247,7 @@ const servicesData = [
                     "/images/home/project2/img2.jpg",
                     "/images/home/project2/img3.jpg",
                     "/images/home/project2/img4.jpg",
+                    "/images/home/project2/img1.jpg",
                 ]
             },
             {
@@ -251,6 +264,7 @@ const servicesData = [
                     "/images/home/project1/img6.jpg",
                     "/images/home/project1/img7.jpg",
                     "/images/home/project1/img8.jpg",
+                    "/images/home/project1/img1.jpg",
                 ]
             },
         ]

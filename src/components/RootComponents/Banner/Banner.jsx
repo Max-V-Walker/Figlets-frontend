@@ -4,7 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 import { AiOutlineInstagram, AiFillFacebook } from "react-icons/ai";
 
-import styles from "./banner.module.css";
+import styles from "./Banner.module.css";
 
 const Banner = () => {
   const [isShowBanner, setIsShowBanner] = useState(null);

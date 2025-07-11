@@ -64,7 +64,7 @@ const Services = () => {
         "important"
       );
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "visible";
       document.documentElement.style.setProperty(
         "overflow",
         "auto",
@@ -74,7 +74,7 @@ const Services = () => {
 
     return () => {
       // Cleanup: always reset overflow when component unmounts
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "visible";
       document.documentElement.style.setProperty(
         "overflow",
         "auto",

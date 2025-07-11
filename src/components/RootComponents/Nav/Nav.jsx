@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link  } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Nav.module.css";
 
@@ -11,6 +11,34 @@ const Nav = () => {
   const [isBurgerClicked, setIsBurgerClicked] = useState(false);
 
   const hamburgerClickHandler = () => setIsBurgerClicked(true);
+
+  useEffect(() => {
+    if (isBurgerClicked) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.setProperty(
+        "overflow",
+        "hidden",
+        "important"
+      );
+    } else {
+      document.body.style.overflow = "visible";
+      document.documentElement.style.setProperty(
+        "overflow",
+        "auto",
+        "important"
+      );
+    }
+
+    return () => {
+      // Cleanup: always reset overflow when component unmounts
+      document.body.style.overflow = "visible";
+      document.documentElement.style.setProperty(
+        "overflow",
+        "auto",
+        "important"
+      );
+    };
+  }, [isBurgerClicked]);
 
   const burgerMenu = (
     <div
@@ -34,7 +62,7 @@ const Nav = () => {
       <Link to="/apply-now" onClick={() => setIsBurgerClicked(false)}>
         Apply Now
       </Link>
-      <Link to="/contact-us">Get A Quote</Link>
+      <Link to="/contact-us" onClick={() => setIsBurgerClicked(false)}>Get A Quote</Link>
     </div>
   );
 

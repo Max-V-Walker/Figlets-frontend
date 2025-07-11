@@ -71,6 +71,7 @@
   align-items: center;
   border: none;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .arrow:first-of-type {
@@ -91,6 +92,8 @@
   .carouselWrapper {
     /* border: 3px solid red; */
     width: 90vw;
+    margin: 0 auto;
+    max-width: 1600px;
   }
 
   .carousel {

@@ -16,19 +16,19 @@ const Services = () => {
             <div className={styles.services}>
                 <Link to="/our-services" className={styles.service} loading="lazy">
                     <img src={BathroomServiceImg} alt="Bathroom Services" />
-                    <p>Bathrooms</p>
+                    <p>Bathrooms 🛁</p>
                 </Link>
                 <Link to="/our-services" className={styles.service} loading="lazy">
                     <img src={KitchenServiceImg} alt="Kitchen Services" />
-                    <p>Kitchens</p>
+                    <p>Kitchens 🍳</p>
                 </Link>
                 <Link to="/our-services" className={styles.service} loading="lazy">
                     <img src={FencingServiceImg} alt="Fencing, Deck, & Concrete Services" />
-                    <p>Fencing, Decks, & Concrete</p>
+                    <p>Fencing, Decks, & Concrete 🧱</p>
                 </Link>
                 <Link to="/our-services" className={styles.service} loading="lazy">
                     <img src={DumpsterServiceImg} alt="Dumpster & Demolition Services" />
-                    <p>Dumpster & Demolition</p>
+                    <p>Dumpster & Demolition 🚚</p>
                 </Link>
             </div>
         </section>

@@ -4,7 +4,7 @@
   color: white;
   font-family: "Stardos Stencil", system-ui;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
@@ -14,7 +14,6 @@
 
 .show-banner {
   z-index: 100;
-  /* z-index: 200; */
   height: 60px;
 }
 
@@ -28,32 +27,41 @@
 }
 
 .promo-banner-container p:nth-child(2) {
+  /* border: 2px solid red; */
+  width: 60%;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   position: absolute;
-  left: 10px;
-  left: 3vw;
+  left: 2vw;
 }
 
 .promo-banner-container p:nth-child(2) a {
-  /* font-size: 4.2vw; */
   font-size: clamp(1rem, 4.2vw, 1.5rem);
   color: white;
   text-decoration: none;
-}
-
-.banner-socials {
-  /* font-size: 1.8rem;
-  font-size: 7.5vw; */
-  font-size: clamp(1rem, 7.5vw, 2rem);
-  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
 }
 
 .promo-banner-container div {
-  width: 75px;
+  /* border: 2px solid red; */
+  width: 85px;
   position: absolute;
-  right: 6vw;
+  right: 10vw;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: nowrap;
+}
+
+.banner-socials {
+  font-size: 2.3rem;
+  color: white;
+  vertical-align: middle;
+  /* border: 1px solid red; */
 }
 
 .promo-banner-container button {
