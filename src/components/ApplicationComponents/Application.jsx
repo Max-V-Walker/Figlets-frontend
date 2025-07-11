@@ -537,8 +537,7 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="reliableTransportation" type="radio" value="yes" style={{display: "inline"}}/>
-              Yes
+              <Field name="reliableTransportation" type="radio" value="yes" style={{display: "inline"}}/> Yes
             </label>
             <label>
               <Field name="reliableTransportation" type="radio" value="no" style={{display: "inline"}}/> No
