@@ -43,7 +43,7 @@
   text-decoration: none;
   display: flex;
   justify-content: flex-start;
-  align-items: center
+  align-items: center;
 }
 
 .promo-banner-container div {
@@ -77,8 +77,9 @@
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 /* Desktop design */
 @media (min-width: 768px) {
-  .show-banner {
-    height: 45px;
+  .promo-banner-container {
+    justify-content: space-around;
+   
   }
   .promo-banner-container p:nth-child(1) {
     display: inline-block;
@@ -86,16 +87,9 @@
 
   .promo-banner-container p:nth-child(2) {
     position: static;
+    width: fit-content;
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.2s ease;
-  }
-
-  .promo-banner-container p:nth-child(2):hover {
-    border-bottom: 2px solid white;
-  }
-
-  .promo-banner-container p:nth-child(2) a {
-    font-size: 18px;
   }
 
   .promo-banner-container p span {
@@ -107,12 +101,19 @@
     font-size: 18px;
   }
 
+  .promo-banner-container p:nth-child(2):hover {
+    border-bottom: 2px solid white;
+  }
+
+  .promo-banner-container p:nth-child(2) a {
+    font-size: 18px;
+  }
+
   .promo-banner-container div {
+    /* border: 2px solid red; */
     position: static;
-    width: 100px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: nowrap;
+    width: 125px;
+    justify-content: space-evenly;
   }
 
   .banner-socials {
