@@ -42,7 +42,8 @@ const Application = () => {
       },
       body: JSON.stringify(completedApplication),
     })
-      .then(() => {
+      .then((res) => {
+        if(!res.ok) throw new Error(`Server responded with ${res.status}`)
         console.log("Form submitted to backend");
       })
       .catch((err) => {
