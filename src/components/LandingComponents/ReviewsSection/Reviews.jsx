@@ -30,7 +30,7 @@ const ReviewSection = () => {
   return (
     <section className={styles.reviewSection} id="reviews">
       <div className={styles["review-heading"]}>
-        <h2>EXCELLENT</h2>
+        <h2>"EXCELLENT"</h2>
         <div className={styles.stars}>
           {reviews.map((_, i) => (
             <AiFillStar key={i} className={styles["stars"]} />

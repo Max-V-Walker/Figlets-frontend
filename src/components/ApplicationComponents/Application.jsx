@@ -33,7 +33,7 @@ const Application = () => {
       signature: signatureDataURL,
     };
 
-    console.log("Form submitted on frontend!..")
+    console.log("Application submitted on frontend")
 
     fetch(`${baseURL}/submit-application`, {
       method: "POST",
@@ -44,7 +44,7 @@ const Application = () => {
     })
       .then((res) => {
         if(!res.ok) throw new Error(`Server responded with ${res.status}`)
-        console.log("Form submitted to backend");
+        console.log("Application submitted to backend");
       })
       .catch((err) => {
         console.error("ERROOOOOR:", err);
