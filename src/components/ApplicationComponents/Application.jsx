@@ -11,10 +11,38 @@ const Application = () => {
   const [formData, setFormData] = useState({});
   const [step, setStep] = useState(1);
   const sigPadRef = useRef();
+  const formikRefs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
 
-  const baseURL = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API_URL;
+  const baseURL = import.meta.env.DEV ? "/api" : import.meta.env.VITE_API_URL;
 
-  const nextStep = (values) => {
+  const validateAndScroll = async (formikRef) => {
+    if (!formikRef?.current) return false;
+
+    const errors = await formikRef.current.validateForm();
+
+    if (Object.keys(errors).length > 0) {
+      const firstErrorField = Object.keys(errors)[0];
+      const el = document.querySelector(`[name="${firstErrorField}"]`);
+      if (el && el.scrollIntoView)
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+
+    return true;
+  };
+
+  const nextStep = async (values) => {
+    const isValid = await validateAndScroll(formikRefs[step - 1]);
+    if (isValid) {
+      formikRefs[step].current.handleSubmit();
+    }
+
     setFormData({ ...formData, ...values });
     setStep((preVal) => preVal + 1);
   };
@@ -23,7 +51,12 @@ const Application = () => {
     setStep((preVal) => preVal - 1);
   };
 
-  const finalSubmission = (values) => {
+  const finalSubmission = async (values) => {
+    const isValid = await validateAndScroll(formikRefs[4]); // assuming step 5 is at index 4
+    if (isValid) {
+      formikRefs[4].current.handleSubmit(); // triggers `onSubmit={(values) => finalSubmission(values)}`
+    }
+
     setStep((preVal) => preVal + 1);
     const signatureDataURL = sigPadRef.current.toDataURL();
 
@@ -33,7 +66,7 @@ const Application = () => {
       signature: signatureDataURL,
     };
 
-    console.log("Application submitted on frontend")
+    console.log("Application submitted on frontend");
 
     fetch(`${baseURL}/submit-application`, {
       method: "POST",
@@ -43,7 +76,7 @@ const Application = () => {
       body: JSON.stringify(completedApplication),
     })
       .then((res) => {
-        if(!res.ok) throw new Error(`Server responded with ${res.status}`)
+        if (!res.ok) throw new Error(`Server responded with ${res.status}`);
         console.log("Application submitted to backend");
       })
       .catch((err) => {
@@ -73,11 +106,10 @@ const Application = () => {
             application will not be used for limiting or excluding any applicant
             from consideration for employment on a basis prohibited by local,
             state, or federal law.
-            <br/>
-            <br/>
-            Should an applicant need reasonable
-            accommodation in the application process, he or she should contact a
-            company representative.
+            <br />
+            <br />
+            Should an applicant need reasonable accommodation in the application
+            process, he or she should contact a company representative.
           </p>
         </>
       )}
@@ -94,6 +126,7 @@ const Application = () => {
 
       {step === 1 && (
         <Formik
+          innerRef={formikRefs[0]}
           initialValues={{
             formDate: new Date().toLocaleDateString("en-CA"),
             fullName: formData.fullName || "",
@@ -223,10 +256,22 @@ const Application = () => {
               Smoker? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="smoker" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="smoker"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="smoker" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="smoker"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="smoker"
@@ -239,10 +284,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="citizenship" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="citizenship"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="citizenship" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="citizenship"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="citizenship"
@@ -255,10 +312,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="proofOfCitizenship" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="proofOfCitizenship"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="proofOfCitizenship" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="proofOfCitizenship"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="proofOfCitizenship"
@@ -271,10 +340,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="drugTest" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="drugTest"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="drugTest" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="drugTest"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="drugTest"
@@ -287,10 +368,22 @@ const Application = () => {
               accommodations? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="accommodations" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="accommodations"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="accommodations" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="accommodations"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="accommodations"
@@ -311,10 +404,22 @@ const Application = () => {
               misdemeanor)? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="criminalHistory" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="criminalHistory"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="criminalHistory" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="criminalHistory"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="criminalHistory"
@@ -338,10 +443,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="backgroundCheck" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="backgroundCheck"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="backgroundCheck" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="backgroundCheck"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="backgroundCheck"
@@ -354,10 +471,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="medicalConditions" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="medicalConditions"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="medicalConditions" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="medicalConditions"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="medicalConditions"
@@ -365,16 +494,13 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              If yes, please specify any medical conditions:
-            </label>
+            <label>If yes, please specify any medical conditions:</label>
             <Field name="medicalConditionsExplain" as="textarea" />
             <ErrorMessage
               name="medicalConditionsExplain"
               component="div"
               style={{ color: "red" }}
             />
-
 
             <p style={{ marginTop: "25px" }}>
               (Note: No applicant will be denied employment solely on the
@@ -385,7 +511,11 @@ const Application = () => {
               position(s) applied for may be considered){" "}
             </p>
 
-            <button type="submit" className={styles["next-step-button"]}>
+            <button
+              type="button"
+              onClick={nextStep}
+              className={styles["next-step-button"]}
+            >
               Next
             </button>
           </Form>
@@ -394,6 +524,7 @@ const Application = () => {
 
       {step === 2 && (
         <Formik
+          innerRef={formikRefs[1]}
           initialValues={{
             positionApplyingFor: formData.positionApplyingFor || "",
             heardFrom: formData.heardFrom || "",
@@ -464,10 +595,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="monThroughFri" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="monThroughFri"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="monThroughFri" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="monThroughFri"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="monThroughFri"
@@ -480,10 +623,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="overtime" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="overtime"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="overtime" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="overtime"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="overtime"
@@ -496,10 +651,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="oddExtensiveHours" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="oddExtensiveHours"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="oddExtensiveHours" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="oddExtensiveHours"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="oddExtensiveHours"
@@ -512,10 +679,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="weekends" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="weekends"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="weekends" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="weekends"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="weekends"
@@ -538,10 +717,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="reliableTransportation" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="reliableTransportation"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="reliableTransportation" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="reliableTransportation"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="reliableTransportation"
@@ -554,10 +745,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="liftWeight" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="liftWeight"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="liftWeight" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="liftWeight"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="liftWeight"
@@ -570,10 +773,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="machineryExperience" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="machineryExperience"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="machineryExperience" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="machineryExperience"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="machineryExperience"
@@ -594,10 +809,22 @@ const Application = () => {
               exceed up to 4 hours? <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="faceMasks" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="faceMasks"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="faceMasks" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="faceMasks"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="faceMasks"
@@ -620,7 +847,7 @@ const Application = () => {
               >
                 Back
               </button>
-              <button type="submit" className={styles["next-step-button"]}>
+              <button type="button" onClick={nextStep} className={styles["next-step-button"]}>
                 Next
               </button>
             </div>
@@ -630,6 +857,7 @@ const Application = () => {
 
       {step === 3 && (
         <Formik
+          innerRef={formikRefs[2]}
           initialValues={{
             jobSkillsQualification: formData.jobSkillsQualification || "",
             highschoolName: formData.highschoolName || "",
@@ -802,10 +1030,22 @@ const Application = () => {
               <span style={{ color: "red" }}>*</span>
             </label>
             <label>
-              <Field name="memberOfArmedService" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="memberOfArmedService"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="memberOfArmedService" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="memberOfArmedService"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="memberOfArmedService"
@@ -823,10 +1063,22 @@ const Application = () => {
 
             <label>Are you still active? </label>
             <label>
-              <Field name="militaryStillActive" type="radio" value="yes" style={{display: "inline"}}/> Yes
+              <Field
+                name="militaryStillActive"
+                type="radio"
+                value="yes"
+                style={{ display: "inline" }}
+              />{" "}
+              Yes
             </label>
             <label>
-              <Field name="militaryStillActive" type="radio" value="no" style={{display: "inline"}}/> No
+              <Field
+                name="militaryStillActive"
+                type="radio"
+                value="no"
+                style={{ display: "inline" }}
+              />{" "}
+              No
             </label>
             <ErrorMessage
               name="militaryStillActive"
@@ -851,7 +1103,7 @@ const Application = () => {
                 Back
               </button>
 
-              <button type="submit" className={styles["next-step-button"]}>
+              <button type="button" onClick={nextStep} className={styles["next-step-button"]}>
                 Next
               </button>
             </div>
@@ -861,6 +1113,7 @@ const Application = () => {
 
       {step === 4 && (
         <Formik
+          innerRef={formikRefs[3]}
           initialValues={{
             employer1Name: formData.employer1Name || "",
             job1Title: formData.job1Title || "",
@@ -986,9 +1239,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              End Date
-            </label>
+            <label>End Date</label>
             <Field name="employment1End" type="date" />
             <ErrorMessage
               name="employment1End"
@@ -997,7 +1248,10 @@ const Application = () => {
             />
 
             <label>
-              Reason for Leaving {formData.employment1End && <span style={{ color: "red" }}>*</span>}
+              Reason for Leaving{" "}
+              {formData.employment1End && (
+                <span style={{ color: "red" }}>*</span>
+              )}
             </label>
             <Field name="reasonForLeaving1" as="textarea" />
             <ErrorMessage
@@ -1006,9 +1260,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
             {/* Employment 2 */}
-            <label>
-              Employer Name
-            </label>
+            <label>Employer Name</label>
             <Field name="employer2Name" type="text" />
             <ErrorMessage
               name="employer2Name"
@@ -1016,9 +1268,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              Job Title
-            </label>
+            <label>Job Title</label>
             <Field name="job2Title" type="text" />
             <ErrorMessage
               name="job2Title"
@@ -1026,9 +1276,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              Supervisor name
-            </label>
+            <label>Supervisor name</label>
             <Field name="supervisor2Name" type="text" />
             <ErrorMessage
               name="supervisor2Name"
@@ -1036,9 +1284,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              Employer address
-            </label>
+            <label>Employer address</label>
             <Field name="employer2Address" type="text" />
             <ErrorMessage
               name="employer2Address"
@@ -1046,9 +1292,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              Employer telephone
-            </label>
+            <label>Employer telephone</label>
             <Field name="employer2Phone" type="text" />
             <ErrorMessage
               name="employer2Phone"
@@ -1056,9 +1300,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              Start Date
-            </label>
+            <label>Start Date</label>
             <Field name="employment2Start" type="date" />
             <ErrorMessage
               name="employment2Start"
@@ -1066,9 +1308,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>
-              End Date
-            </label>
+            <label>End Date</label>
             <Field name="employment2End" type="date" />
             <ErrorMessage
               name="employment2End"
@@ -1077,7 +1317,10 @@ const Application = () => {
             />
 
             <label>
-              Reason for Leaving {formData.employment2End && <span style={{ color: "red" }}>*</span>}
+              Reason for Leaving{" "}
+              {formData.employment2End && (
+                <span style={{ color: "red" }}>*</span>
+              )}
             </label>
             <Field name="reasonForLeaving2" as="textarea" />
             <ErrorMessage
@@ -1153,7 +1396,7 @@ const Application = () => {
               >
                 Back
               </button>
-              <button type="submit" className={styles["next-step-button"]}>
+              <button type="button" onClick={nextStep} className={styles["next-step-button"]}>
                 Next
               </button>
             </div>
@@ -1163,6 +1406,7 @@ const Application = () => {
 
       {step === 5 && (
         <Formik
+          innerRef={formikRefs[4]}
           initialValues={{
             certificationAgreed: false,
             signatureDate: new Date().toLocaleDateString("en-CA"),
@@ -1175,7 +1419,7 @@ const Application = () => {
           onSubmit={(values) => finalSubmission(values)}
         >
           <Form className={styles["application-form"]}>
-          <h2 className={styles["education-training-header"]}>
+            <h2 className={styles["education-training-header"]}>
               Certification
             </h2>
             <p>
@@ -1211,9 +1455,13 @@ const Application = () => {
 
             <br />
             <label>
-              <Field type="checkbox" name="certificationAgreed" style={{display: "inline"}} /> I HAVE
-              CAREFULLY READ THE ABOVE CERTIFICATION AND I UNDERSTAND AND AGREE
-              TO ITS TERMS.
+              <Field
+                type="checkbox"
+                name="certificationAgreed"
+                style={{ display: "inline" }}
+              />{" "}
+              I HAVE CAREFULLY READ THE ABOVE CERTIFICATION AND I UNDERSTAND AND
+              AGREE TO ITS TERMS.
             </label>
             <ErrorMessage
               name="certificationAgreed"
@@ -1254,7 +1502,7 @@ const Application = () => {
               >
                 Back
               </button>
-              <button type="submit" className={styles["next-step-button"]}>
+              <button type="button" onClick={finalSubmission} className={styles["next-step-button"]}>
                 Submit Application
               </button>
             </div>
