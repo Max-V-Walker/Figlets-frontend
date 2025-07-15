@@ -21,30 +21,9 @@ const Application = () => {
 
   const baseURL = import.meta.env.DEV ? "/api" : import.meta.env.VITE_API_URL;
 
-  const validateAndScroll = async (formikRef) => {
-    if (!formikRef?.current) return false;
-
-    const errors = await formikRef.current.validateForm();
-
-    if (Object.keys(errors).length > 0) {
-      const firstErrorField = Object.keys(errors)[0];
-      const el = document.querySelector(`[name="${firstErrorField}"]`);
-      if (el && el.scrollIntoView)
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
-      return false;
-    }
-
-    return true;
-  };
-
   const nextStep = async (values) => {
-    const isValid = await validateAndScroll(formikRefs[step - 1]);
-    if (isValid) {
-      formikRefs[step].current.handleSubmit();
-    }
-
     setFormData({ ...formData, ...values });
-    setStep((preVal) => preVal + 1);
+    setStep((prev) => prev + 1);
   };
 
   const prevStep = () => {
@@ -52,11 +31,6 @@ const Application = () => {
   };
 
   const finalSubmission = async (values) => {
-    const isValid = await validateAndScroll(formikRefs[4]); // assuming step 5 is at index 4
-    if (isValid) {
-      formikRefs[4].current.handleSubmit(); // triggers `onSubmit={(values) => finalSubmission(values)}`
-    }
-
     setStep((preVal) => preVal + 1);
     const signatureDataURL = sigPadRef.current.toDataURL();
 
@@ -511,11 +485,7 @@ const Application = () => {
               position(s) applied for may be considered){" "}
             </p>
 
-            <button
-              type="button"
-              onClick={nextStep}
-              className={styles["next-step-button"]}
-            >
+            <button type="submit" className={styles["next-step-button"]}>
               Next
             </button>
           </Form>
@@ -847,7 +817,10 @@ const Application = () => {
               >
                 Back
               </button>
-              <button type="button" onClick={nextStep} className={styles["next-step-button"]}>
+              <button
+                type="submit"
+                className={styles["next-step-button"]}
+              >
                 Next
               </button>
             </div>
@@ -1103,7 +1076,10 @@ const Application = () => {
                 Back
               </button>
 
-              <button type="button" onClick={nextStep} className={styles["next-step-button"]}>
+              <button
+                type="submit"
+                className={styles["next-step-button"]}
+              >
                 Next
               </button>
             </div>
@@ -1396,7 +1372,10 @@ const Application = () => {
               >
                 Back
               </button>
-              <button type="button" onClick={nextStep} className={styles["next-step-button"]}>
+              <button
+                type="submit"
+                className={styles["next-step-button"]}
+              >
                 Next
               </button>
             </div>
@@ -1502,7 +1481,10 @@ const Application = () => {
               >
                 Back
               </button>
-              <button type="button" onClick={finalSubmission} className={styles["next-step-button"]}>
+              <button
+                type="submit"
+                className={styles["next-step-button"]}
+              >
                 Submit Application
               </button>
             </div>
