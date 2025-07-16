@@ -10,6 +10,7 @@ import FigletsIcon from "../../assets/icons/figlets-icon.png";
 const Application = () => {
   const [formData, setFormData] = useState({});
   const [step, setStep] = useState(1);
+  const [hasError, setHasError] = useState(false);
   const sigPadRef = useRef();
   const formikRefs = [
     useRef(null),
