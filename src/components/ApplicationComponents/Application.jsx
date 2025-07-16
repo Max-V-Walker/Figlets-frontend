@@ -1333,7 +1333,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
             {/* Employment 2 */}
-            <label>Employer Name</label>
+            <label>Employer 2 Name</label>
             <Field name="employer2Name" type="text" />
             <ErrorMessage
               name="employer2Name"
@@ -1341,7 +1341,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>Job Title</label>
+            <label>Job 2 Title</label>
             <Field name="job2Title" type="text" />
             <ErrorMessage
               name="job2Title"
@@ -1349,7 +1349,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>Supervisor name</label>
+            <label>Supervisor 2 name</label>
             <Field name="supervisor2Name" type="text" />
             <ErrorMessage
               name="supervisor2Name"
@@ -1357,7 +1357,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>Employer address</label>
+            <label>Employer 2 address</label>
             <Field name="employer2Address" type="text" />
             <ErrorMessage
               name="employer2Address"
@@ -1365,7 +1365,7 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
-            <label>Employer telephone</label>
+            <label>Employer 2 telephone</label>
             <Field name="employer2Phone" type="text" />
             <ErrorMessage
               name="employer2Phone"
