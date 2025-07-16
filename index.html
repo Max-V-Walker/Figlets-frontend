@@ -5,13 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
+    <!-- Title & description for SEO -->
+    <title>
+      Figlet's Construction | NJ's Go-To Home Improvement Contractor
+    </title>
+    <meta
+      name="description"
+      content="Figlet's Construction LLC is the trusted home renovation and improvement company serving New Jersey. Get a free estimate today!"
+    />
+
+    <!-- Open Graph for social sharing -->
     <meta property="og:title" content="Figlet's Construction LLC" />
     <meta property="og:description" content="Get a free estimate today!" />
-    <meta property="og:image" content="https://figlets-frontend.netlify.app/preview.jpg" />
+    <meta
+      property="og:image"
+      content="https://figlets-frontend.netlify.app/preview.jpg"
+    />
     <meta property="og:url" content="https://figlets-frontend.netlify.app/" />
     <meta property="og:type" content="website" />
 
-    <title>Figlet's Consutruction</title>
+    <!-- Local Business JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Figlet's Construction LLC",
+        "image": "https://figlets-frontend.netlify.app/preview.jpg",
+        "url": "https://figlets-frontend.netlify.app",
+        "telephone": "+1-732-486-9760",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "166 Johnson Ln",
+          "addressLocality": "Parlin",
+          "addressRegion": "NJ",
+          "postalCode": "08859",
+          "addressCountry": "US"
+        },
+        "description": "Figlet's Construction LLC provides expert home renovation and remodeling services throughout the Tri-State area."
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
