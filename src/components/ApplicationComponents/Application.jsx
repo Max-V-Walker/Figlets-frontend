@@ -9,7 +9,7 @@ import FigletsIcon from "../../assets/icons/figlets-icon.png";
 
 const Application = () => {
   const [formData, setFormData] = useState({});
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(5);
   const [hasError, setHasError] = useState(false);
   const sigPadRef = useRef();
   const formikRefs = [
@@ -22,26 +22,72 @@ const Application = () => {
 
   const baseURL = import.meta.env.DEV ? "/api" : import.meta.env.VITE_API_URL;
 
-  const nextStep = async (values) => {
-    setFormData({ ...formData, ...values });
-    setStep((prev) => prev + 1);
+  const nextStep = async () => {
+    const formikRef = formikRefs[step - 1];
+    if (!formikRef?.current) return;
+
+    // Mark all fields as touched
+    const fields = Object.keys(formikRef.current.initialValues);
+    const touchedFields = fields.reduce((acc, field) => {
+      acc[field] = true;
+      return acc;
+    }, {});
+    formikRef.current.setTouched(touchedFields, true);
+
+    // Then validate
+    const errors = await formikRef.current.validateForm();
+
+    if (Object.keys(errors).length > 0) {
+      setHasError(true);
+      return;
+    }
+
+    setHasError(false);
+    formikRef.current.handleSubmit();
+
+    // setFormData({ ...formData, ...values });
+    // setStep((prev) => prev + 1);
   };
 
   const prevStep = () => {
     setStep((preVal) => preVal - 1);
   };
 
-  const finalSubmission = async (values) => {
-    setStep((preVal) => preVal + 1);
+  const finalSubmission = async () => {
+    const formikRef = formikRefs[4];
+    if (!formikRef?.current) return;
+
     const signatureDataURL = sigPadRef.current.toDataURL();
+    await formikRef.current.setFieldValue("signature", signatureDataURL);
+
+    // Mark fields as touched
+    const fields = Object.keys(formikRef.current.initialValues);
+    const touchedFields = fields.reduce((acc, field) => {
+      acc[field] = true;
+      return acc;
+    }, {});
+    formikRef.current.setTouched(touchedFields, true);
+
+    // Validate
+    const errors = await formikRef.current.validateForm();
+    if (Object.keys(errors).length > 0) {
+      setHasError(true);
+      return;
+    }
+
+    setHasError(false);
+    setStep((preVal) => preVal + 1);
+
+    console.log("Application submitted on frontend");
+
+    const values = formikRef.current.values;
+    // const signatureDataURL = sigPadRef.current.toDataURL();
 
     const completedApplication = {
       ...formData,
       ...values,
       signature: signatureDataURL,
     };
-
-    console.log("Application submitted on frontend");
 
     fetch(`${baseURL}/submit-application`, {
       method: "POST",
@@ -160,7 +206,11 @@ const Application = () => {
               otherwise: () => Yup.string(),
             }),
           })}
-          onSubmit={(values) => nextStep(values)}
+          // onSubmit={(values) => nextStep(values)}
+          onSubmit={(values) => {
+            setFormData({ ...formData, ...values });
+            setStep((prev) => prev + 1);
+          }}
         >
           <Form className={styles["application-form"]}>
             <Field name="formDate" type="hidden" />
@@ -486,7 +536,19 @@ const Application = () => {
               position(s) applied for may be considered){" "}
             </p>
 
-            <button type="submit" className={styles["next-step-button"]}>
+            {hasError && (
+              <p
+                style={{ color: "red", marginTop: "5px", textAlign: "center" }}
+              >
+                Error: Please fill out all required fields.
+              </p>
+            )}
+
+            <button
+              type="button"
+              onClick={nextStep}
+              className={styles["next-step-button"]}
+            >
               Next
             </button>
           </Form>
@@ -535,7 +597,11 @@ const Application = () => {
             ),
             faceMasks: Yup.string().required("Required"),
           })}
-          onSubmit={(values) => nextStep(values)}
+          // onSubmit={(values) => nextStep(values)}
+          onSubmit={(values) => {
+            setFormData({ ...formData, ...values });
+            setStep((prev) => prev + 1);
+          }}
         >
           <Form className={styles["application-form"]}>
             <h2 className={styles["education-training-header"]}>
@@ -810,6 +876,14 @@ const Application = () => {
               home for the day and if repeat offense you will be terminated.){" "}
             </p>
 
+            {hasError && (
+              <p
+                style={{ color: "red", marginTop: "5px", textAlign: "center" }}
+              >
+                Error: Please fill out all required fields.
+              </p>
+            )}
+
             <div className={styles["step-button-container"]}>
               <button
                 onClick={prevStep}
@@ -819,7 +893,8 @@ const Application = () => {
                 Back
               </button>
               <button
-                type="submit"
+                type="button"
+                onClick={nextStep}
                 className={styles["next-step-button"]}
               >
                 Next
@@ -881,7 +956,11 @@ const Application = () => {
               otherwise: () => Yup.string(),
             }),
           })}
-          onSubmit={(values) => nextStep(values)}
+          // onSubmit={(values) => nextStep(values)}
+          onSubmit={(values) => {
+            setFormData({ ...formData, ...values });
+            setStep((prev) => prev + 1);
+          }}
         >
           <Form className={styles["application-form"]}>
             <h2 className={styles["education-training-header"]}>
@@ -892,7 +971,11 @@ const Application = () => {
               position for which you are applying{" "}
               <span style={{ color: "red" }}>*</span>
             </label>
-            <Field name="jobSkillsQualification" as="textarea" />
+            <Field
+              name="jobSkillsQualification"
+              as="textarea"
+              style={{ marginTop: "5px" }}
+            />
             <ErrorMessage
               name="jobSkillsQualification"
               component="div"
@@ -1068,6 +1151,14 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
+            {hasError && (
+              <p
+                style={{ color: "red", marginTop: "5px", textAlign: "center" }}
+              >
+                Error: Please fill out all required fields.
+              </p>
+            )}
+
             <div className={styles["step-button-container"]}>
               <button
                 onClick={prevStep}
@@ -1078,7 +1169,8 @@ const Application = () => {
               </button>
 
               <button
-                type="submit"
+                type="button"
+                onClick={nextStep}
                 className={styles["next-step-button"]}
               >
                 Next
@@ -1149,7 +1241,11 @@ const Application = () => {
             reference2Phone: Yup.string(),
             reference2Relationship: Yup.string(),
           })}
-          onSubmit={(values) => nextStep(values)}
+          // onSubmit={(values) => nextStep(values)}
+          onSubmit={(values) => {
+            setFormData({ ...formData, ...values });
+            setStep((prev) => prev + 1);
+          }}
         >
           <Form className={styles["application-form"]}>
             <h2 className={styles["education-training-header"]}>
@@ -1365,6 +1461,14 @@ const Application = () => {
               style={{ color: "red" }}
             />
 
+            {hasError && (
+              <p
+                style={{ color: "red", marginTop: "5px", textAlign: "center" }}
+              >
+                Error: Please fill out all required fields.
+              </p>
+            )}
+
             <div className={styles["step-button-container"]}>
               <button
                 type="button"
@@ -1374,7 +1478,8 @@ const Application = () => {
                 Back
               </button>
               <button
-                type="submit"
+                type="button"
+                onClick={nextStep}
                 className={styles["next-step-button"]}
               >
                 Next
@@ -1396,7 +1501,7 @@ const Application = () => {
               .oneOf([true], "You must agree to the terms")
               .required("Required"),
           })}
-          onSubmit={(values) => finalSubmission(values)}
+          // onSubmit={(values) => finalSubmission(values)}
         >
           <Form className={styles["application-form"]}>
             <h2 className={styles["education-training-header"]}>
@@ -1460,9 +1565,18 @@ const Application = () => {
                   className: styles["signature-canvas"],
                 }}
               />
+
+              {hasError && (
+                <p style={{ color: "red" }}>Signature field must be complete</p>
+              )}
+
               <button
                 type="button"
-                onClick={() => sigPadRef.current.clear()}
+                onClick={() => {
+                  sigPadRef.current.clear();
+                  sigPadRef.current.clear();
+                  formikRefs[4]?.current?.setFieldValue("signature", "");
+                }}
                 className={styles["next-step-button"]}
               >
                 Clear Signature
@@ -1474,6 +1588,14 @@ const Application = () => {
               <Field name="signatureDate" type="date" disabled />
             </div>
 
+            {hasError && (
+              <p
+                style={{ color: "red", marginTop: "5px", textAlign: "center" }}
+              >
+                Error: Please fill out all required fields.
+              </p>
+            )}
+
             <div className={styles["step-button-container"]}>
               <button
                 type="button"
@@ -1483,7 +1605,8 @@ const Application = () => {
                 Back
               </button>
               <button
-                type="submit"
+                type="button"
+                onClick={finalSubmission}
                 className={styles["next-step-button"]}
               >
                 Submit Application

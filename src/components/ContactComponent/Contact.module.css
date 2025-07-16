@@ -1,12 +1,10 @@
 .contact-form-container {
-  /* border: 4px solid red; */
   font-family: "Stardos Stencil", system-ui;
   background-color: rgba(0, 71, 171, 0.85);
   padding: 15px 15px 25px;
 }
 
 .contact-form-container h2 {
-  /* border: 2px solid black; */
   font-size: 1.5rem;
   line-height: 28px;
   color: white;
@@ -15,17 +13,12 @@
 }
 
 .contact-form {
-  /* border: 2px solid red; */
-  /* margin: 15px; */
   padding: 25px 15px;
   background-color: white;
   border-radius: 6px;
-  /* width: 100%; */
-  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); */
 }
 
 .contact-form > p {
-  /* border: 1px solid black; */
   font-size: 0.8rem;
   margin-bottom: 15px;
 }
@@ -39,9 +32,8 @@
 }
 
 .contact-form div input {
-  /* border: 2px solid red; */
   width: 95%;
-  height: 35px;
+  height: 45px;
   padding-left: 5px;
   background-clip: padding-box;
   transform: translate3d(0, 0, 0);

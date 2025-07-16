@@ -76,9 +76,13 @@
 .application-form input[type="date"] {
   /* border: 2px solid red; */
   width: 95%;
-  height: 35px;
+  height: 45px;
   padding-left: 5px;
   /* margin-bottom: 10px; */
+}
+
+.application-form input[type="date"] {
+  width: 50%;
 }
 
 .application-form label input[type="radio"] {
@@ -146,6 +150,7 @@
   /* border-bottom: 2px solid black; */
   width: fit-content;
   margin: 15px 0 -10px;
+  margin: 15px 0 0;
   font-size: 1.3rem;
 }
 
@@ -178,20 +183,16 @@
 /* Desktop design */
 @media (min-width: 768px) {
   .application-form-container {
-    /* background-color: rgba(0, 71, 171, 0.8); */
     background-color: rgba(0, 71, 171, 0.85);
     color: white;
   }
 
   .application-intro-text {
-    /* border: 3px solid red; */
-    /* color: blue; */
     width: 30%;
     max-width: 40%;
   }
 
   .application-form {
-    /* border: 5px solid red; */
     padding: 10px 20px;
     border-radius: 5px;
     color: black;
@@ -200,17 +201,17 @@
     max-width: 750px;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
   }
-
-  .application-form label {
-    /* color: red; */
+  
+  .application-form input[type="date"] {
+    width: 25%;
   }
+
 
   .application-form label input[type="radio"] {
     border: 2px solid black;
   }
 
   .application-form label:not(:has(input)) {
-    /* color: red; */
     margin-top: 30px;
   }
 
@@ -220,7 +221,6 @@
   }
 
   .thank-you-for-applying {
-    /* border: 2px solid red; */
     background-color: white;
     color: black;
     border-radius: 10px;
@@ -228,20 +228,15 @@
     max-width: 600px;
     height: 350px;
     margin: 45px auto;
-
-    /* background-color: white; */
   }
 
   .step-count {
-    /* border: 2px solid red; */
     width: 800px;
-    /* max-width: 55%; */
     margin: 0 auto;
     color: white;
   }
 
   .step-count + p {
-    /* color: red; */
     width: 800px;
     margin: 0 auto 10px;
   }
