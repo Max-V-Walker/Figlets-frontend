@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactGA from "react-ga4";
 
 import styles from "./ReviewCard.module.css";
 
@@ -41,8 +42,21 @@ const ReviewCard = ({
           <AiFillStar key={i} />
         ))}
       </div>
-      <p className={`${styles.text} ${isExpanded ? styles.expanded : ""}`}>{text}</p>
-      <p className={styles["read-more"]} onClick={() => setIsExpanded(preVal => !preVal)}>
+      <p className={`${styles.text} ${isExpanded ? styles.expanded : ""}`}>
+        {text}
+      </p>
+      <p
+        className={styles["read-more"]}
+        onClick={() => {
+          setIsExpanded((preVal) => !preVal);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Reviews → Read more",
+          });
+        }}
+      >
         {isExpanded ? "Show Less" : "Read More"}
       </p>
     </div>

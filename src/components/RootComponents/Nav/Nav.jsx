@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 import styles from "./Nav.module.css";
 
@@ -47,32 +48,154 @@ const Nav = () => {
       }`}
     >
       <button onClick={() => setIsBurgerClicked(false)}>X</button>
-      <Link to="/about-us" onClick={() => setIsBurgerClicked(false)}>
+      <Link
+        to="/about-us"
+        onClick={() => {
+          setIsBurgerClicked(false);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → About Us",
+          });
+        }}
+      >
         About
       </Link>
-      <a href="#reviews" onClick={() => setIsBurgerClicked(false)}>
+      <a
+        href="#reviews"
+        onClick={() => {
+          setIsBurgerClicked(false);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Reviews",
+          });
+        }}
+      >
         Reviews
       </a>
-      <Link to="/our-services" onClick={() => setIsBurgerClicked(false)}>
+      <Link
+        to="/our-services"
+        onClick={() => {
+          setIsBurgerClicked(false);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Services",
+          });
+        }}
+      >
         Services
       </Link>
-      <Link to="/contact-us" onClick={() => setIsBurgerClicked(false)}>
+      <Link
+        to="/contact-us"
+        onClick={() => {
+          setIsBurgerClicked(false);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Contact Us",
+          });
+        }}
+      >
         Contact
       </Link>
-      <Link to="/apply-now" onClick={() => setIsBurgerClicked(false)}>
+      <Link
+        to="/apply-now"
+        onClick={() => {
+          setIsBurgerClicked(false);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Apply Now",
+          });
+        }}
+      >
         Apply Now
       </Link>
-      <Link to="/contact-us" onClick={() => setIsBurgerClicked(false)}>Get A Quote</Link>
+      <Link
+        to="/contact-us"
+        onClick={() => {
+          setIsBurgerClicked(false);
+
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Get A Quote",
+          });
+        }}
+      >
+        Get A Quote
+      </Link>
     </div>
   );
 
   const desktopNav = (
     <div className={styles["desktop-nav-container"]}>
-      <Link to="/about-us">About</Link>
-      <a href="#reviews">Reviews</a>
-      <Link to="/our-services">Services</Link>
-      <Link to="/contact-us">Contact</Link>
-      <Link to="/apply-now" className={styles["apply-now"]}>
+      <Link
+        to="/about-us"
+        onClick={() => {
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → About Us",
+          });
+        }}
+      >
+        About
+      </Link>
+      <a
+        href="#reviews"
+        onClick={() => {
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Reviews",
+          });
+        }}
+      >
+        Reviews
+      </a>
+      <Link
+        to="/our-services"
+        onClick={() => {
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Services",
+          });
+        }}
+      >
+        Services
+      </Link>
+      <Link
+        to="/contact-us"
+        onClick={() => {
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Contact Us",
+          });
+        }}
+      >
+        Contact
+      </Link>
+      <Link
+        to="/apply-now"
+        className={styles["apply-now"]}
+        onClick={() => {
+          ReactGA.event({
+            category: "CTA",
+            action: "Click",
+            label: "Nav → Apply Now",
+          });
+        }}
+      >
         Apply Now
       </Link>
     </div>
@@ -95,7 +218,17 @@ const Nav = () => {
         {/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */}
         {desktopNav}
         {/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */}
-        <Link to="/contact-us" id={styles["quote-button"]}>
+        <Link
+          to="/contact-us"
+          id={styles["quote-button"]}
+          onClick={() => {
+            ReactGA.event({
+              category: "CTA",
+              action: "Click",
+              label: "Nav → Get A Quote",
+            });
+          }}
+        >
           Get A Quote
         </Link>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 import servicesData from "../../data/servicesData";
 import Modal from "./Modal";
@@ -106,11 +107,29 @@ const Services = () => {
         </p>
 
         <div className={styles["services-links-container"]}>
-          <Link to="/contact-us">Get A Quote</Link>
+          <Link
+            to="/contact-us"
+            onClick={() => {
+              ReactGA.event({
+                category: "CTA",
+                action: "Click",
+                label: "Services Page → Get A Quote",
+              });
+            }}
+          >
+            Get A Quote
+          </Link>
           <div>
             <a
               href="https://www.instagram.com/figletsconstruction/"
               target="_blank"
+              onClick={() => {
+                ReactGA.event({
+                  category: "CTA",
+                  action: "Click",
+                  label: "Services Page → IG",
+                });
+              }}
             >
               <img
                 src={IGIcon}
@@ -118,7 +137,17 @@ const Services = () => {
                 className={styles["social-icon"]}
               />
             </a>
-            <a href="https://www.facebook.com/figlets/" target="_blank">
+            <a
+              href="https://www.facebook.com/figlets/"
+              target="_blank"
+              onClick={() => {
+                ReactGA.event({
+                  category: "CTA",
+                  action: "Click",
+                  label: "Services Page → FB",
+                });
+              }}
+            >
               <img
                 src={FBIcon}
                 alt="Facebook Icon"
@@ -133,13 +162,19 @@ const Services = () => {
             <div key={service.id} className={styles.service}>
               <h2
                 className={styles["service-title"]}
-                onClick={() => serviceClickHandler(service)}
+                onClick={() => {
+                  serviceClickHandler(service);
+
+                  ReactGA.event({
+                    category: "CTA",
+                    action: "Click",
+                    label: `Services Page → ${service.service}`,
+                  });
+                }}
               >
-                {service.service}{" "}
-                {service.service === "Kitchen" && "⏲️"}
-                 { service.service === "Bathroom" && "🛁"}
-                {  service.service === "Home" && "🏠"}
-                
+                {service.service} {service.service === "Kitchen" && "⏲️"}
+                {service.service === "Bathroom" && "🛁"}
+                {service.service === "Home" && "🏠"}
                 {expandedService === service.service ? (
                   <MdExpandLess className={styles["expand-icons"]} />
                 ) : (
@@ -164,7 +199,15 @@ const Services = () => {
                       <div
                         key={index}
                         className={styles.project}
-                        onClick={() => projectClickHandler(project)}
+                        onClick={() => {
+                          projectClickHandler(project);
+
+                          ReactGA.event({
+                            category: "CTA",
+                            action: "Click",
+                            label: `Services Page → ${service.service} - ${project.title}`,
+                          });
+                        }}
                       >
                         <h3 className={styles["project-title"]}>
                           {project.title || "Check this!"}

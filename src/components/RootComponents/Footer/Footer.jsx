@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 import styles from "./Footer.module.css";
 
@@ -72,12 +72,29 @@ const FooterComponent = () => {
                 <a
                   href="https://www.instagram.com/figletsconstruction/"
                   target="_blank"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "CTA",
+                      action: "Click",
+                      label: "Footer → IG",
+                    });
+                  }}
                 >
                   <AiOutlineInstagram className={styles["footer-social"]} />
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/figlets/" target="_blank">
+                <a
+                  href="https://www.facebook.com/figlets/"
+                  target="_blank"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "CTA",
+                      action: "Click",
+                      label: "Footer → FB",
+                    });
+                  }}
+                >
                   <AiFillFacebook className={styles["footer-social"]} />
                 </a>
               </li>

@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 
+import ReactGA from "react-ga4";
+
 import ReviewCard from "./ReviewCard";
 
 import styles from "./ReviewsCarousel.module.css";
@@ -19,7 +21,8 @@ const ReviewCarousel = ({ reviews }) => {
     setAtStart(container.scrollLeft <= buffer);
     setAtEnd(
       // container.scrollLeft + container.offsetWidth >= container.scrollWidth - 5
-      container.scrollLeft + container.offsetWidth >= container.scrollWidth - buffer
+      container.scrollLeft + container.offsetWidth >=
+        container.scrollWidth - buffer
     );
   };
 
@@ -78,7 +81,7 @@ const ReviewCarousel = ({ reviews }) => {
       setActiveIndex(0);
     } else {
       updateDesktopArrows();
-      setTimeout(updateDesktopArrows, 100); 
+      setTimeout(updateDesktopArrows, 100);
     }
 
     const handleScroll = () => {
@@ -105,6 +108,13 @@ const ReviewCarousel = ({ reviews }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.readMore}
+                    onClick={() => {
+                      ReactGA.event({
+                        category: "CTA",
+                        action: "Click",
+                        label: "Reviews → View All",
+                      });
+                    }}
                   >
                     Click Here to View All
                   </a>
@@ -129,7 +139,15 @@ const ReviewCarousel = ({ reviews }) => {
           ❮
         </button>
         <button
-          onClick={() => scroll("right")}
+          onClick={() => {
+            scroll("right");
+
+            ReactGA.event({
+              category: "CTA",
+              action: "Click",
+              label: "Reviews → Next Review",
+            });
+          }}
           className={styles.arrow}
           disabled={
             (window.innerWidth >= 768 && atEnd) ||

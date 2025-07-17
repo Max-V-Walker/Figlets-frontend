@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import SignaturePad from "react-signature-canvas";
 
+import ReactGA from "react-ga4";
+
 import styles from "./Application.module.css";
 
 import FigletsIcon from "../../assets/icons/figlets-icon.png";
@@ -81,13 +83,17 @@ const Application = () => {
     console.log("Application submitted on frontend");
 
     const values = formikRef.current.values;
-    // const signatureDataURL = sigPadRef.current.toDataURL();
-
     const completedApplication = {
       ...formData,
       ...values,
       signature: signatureDataURL,
     };
+
+    ReactGA.event({
+      category: "Form",
+      action: "Submit",
+      label: "Application Form",
+    });
 
     fetch(`${baseURL}/submit-application`, {
       method: "POST",

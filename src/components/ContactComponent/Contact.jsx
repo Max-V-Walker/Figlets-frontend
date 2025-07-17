@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactGA from "react-ga4";
 
 import emailjs from "@emailjs/browser";
 
@@ -32,6 +33,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSending(true);
+
+    ReactGA.event({
+      category: "Form",
+      action: "Submit",
+      label: "Contact Form",
+    });
 
     emailjs
       .send(
@@ -181,7 +188,8 @@ const Contact = () => {
         </div>
         <div>
           <label htmlFor="timeFrame">
-            When are you hoping to begin work? <span style={{ color: "red" }}>*</span>{" "}
+            When are you hoping to begin work?{" "}
+            <span style={{ color: "red" }}>*</span>{" "}
           </label>
           <br />
           <input
