@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
@@ -11,16 +13,25 @@ import Footer from "./components/RootComponents/Footer/Footer";
 import ServicesPage from "./pages/ServicesPage/ServicesPage";
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: location.pathname + location.search,
+    });
+  }, [location]);
+
   return (
     <>
       <Banner />
       <Nav />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route  path="/about-us" element={<AboutPage />} />
-        <Route  path="/contact-us" element={<ContactPage />} />
-        <Route  path="/apply-now" element={<ApplicationPage />} />
-        <Route  path="/our-services" element={<ServicesPage />} />
+        <Route path="/about-us" element={<AboutPage />} />
+        <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/apply-now" element={<ApplicationPage />} />
+        <Route path="/our-services" element={<ServicesPage />} />
       </Routes>
       <Footer />
     </>
