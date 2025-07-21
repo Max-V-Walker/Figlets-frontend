@@ -102,7 +102,6 @@ const Contact = () => {
             type="text"
             id="full-name"
             name="fullName"
-            placeholder="Full Name"
             value={formData.fullName}
             onChange={handleChange}
             required
@@ -117,7 +116,6 @@ const Contact = () => {
             type="text"
             id="email"
             name="email"
-            placeholder="christian@figletsconstruction.com"
             value={formData.email}
             onChange={handleChange}
             required
@@ -145,7 +143,6 @@ const Contact = () => {
             type="text"
             id="address"
             name="address"
-            placeholder="166 Johnson Ln"
             value={formData.address}
             onChange={handleChange}
           />
@@ -159,7 +156,6 @@ const Contact = () => {
             type="text"
             id="town"
             name="town"
-            placeholder="Parlin, NJ 08859"
             value={formData.town}
             onChange={handleChange}
             required
@@ -196,7 +192,6 @@ const Contact = () => {
             type="text"
             id="timeFrame"
             name="timeFrame"
-            placeholder="E.g. 2 weeks, 1-2 months, ASAP, exact date"
             value={formData.timeFrame}
             onChange={handleChange}
             required
