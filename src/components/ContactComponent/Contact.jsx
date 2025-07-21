@@ -130,7 +130,6 @@ const Contact = () => {
             type="text"
             id="phone"
             name="phone"
-            placeholder="732-486-9760"
             value={formData.phone}
             onChange={handleChange}
             required
