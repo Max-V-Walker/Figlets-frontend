@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-around;
   flex-wrap: nowrap;
-  row-gap: 20px;
+  row-gap: 10px;
 }
 
 .service {

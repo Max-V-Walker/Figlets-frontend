@@ -33,7 +33,7 @@
   justify-content: flex-start;
   align-items: center;
   position: absolute;
-  left: 2vw;
+  left: 2.5vw;
 }
 
 .promo-banner-container p:nth-child(2) a {
@@ -49,7 +49,7 @@
   /* border: 2px solid red; */
   width: 80px;
   position: absolute;
-  right: 8vw;
+  right: 9.5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@
 
 .promo-banner-container button {
   position: absolute;
-  top: 10px;
+  top: 5px;
   right: 5px;
   font-size: 18px;
   background: none;
