@@ -12,6 +12,7 @@ import Nav from "./components/RootComponents/Nav/Nav";
 import Footer from "./components/RootComponents/Footer/Footer";
 import ServicesPage from "./pages/ServicesPage/ServicesPage";
 import TopPageButton from "./components/RootComponents/TopPageButton/TopPageButton";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/our-services" element={<ServicesPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/apply-now" element={<ApplicationPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <TopPageButton />
       <Footer />

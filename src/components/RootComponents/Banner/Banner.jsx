@@ -31,11 +31,11 @@ const Banner = () => {
         isShowBanner ? styles["show-banner"] : styles["hide-banner"]
       }`}
     >
-      <p>
+      <p style={{fontFamily: "system-ui, sans-serif"}}>
         <span>
           <HiOutlineMail />
         </span>
-        chrisitan @figletsconstruction.com
+        chrisitan@figletsconstruction.com
       </p>
 
       <p>

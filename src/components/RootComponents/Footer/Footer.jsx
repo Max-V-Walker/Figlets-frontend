@@ -60,7 +60,7 @@ const FooterComponent = () => {
             8:00 am - 6:00 pm
           </li>
           <li>
-            <a href={reviewsUrl} target="_blank">
+            <a href={reviewsUrl} target="_blank" className={styles["leave-a-review"]}>
               <i>
                 <MdRateReview />
               </i>
