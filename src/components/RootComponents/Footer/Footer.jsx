@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ReactGA from "react-ga4";
 
 import styles from "./Footer.module.css";
@@ -33,11 +35,11 @@ const FooterComponent = () => {
             </i>
             Parlin, NJ 08859
           </li>
-          <li>
-            <i>
+          <li className={styles.email}>
+            <i className={styles.icon}>
               <HiOutlineMail />
             </i>
-            chrisitan@figletsconstruction.com
+            <Link to="/contact-us">chrisitan@figletsconstruction.com</Link>
           </li>
           <li>
             <i>

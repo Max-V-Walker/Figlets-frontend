@@ -24,7 +24,7 @@
   margin: 20px auto;
 }
 
-.footer-container > div:nth-child(2){
+.footer-container > div:nth-child(2) {
   /* border: 3px solid red; */
   padding: 0 10px;
 }
@@ -41,13 +41,21 @@
 }
 
 .footer-container > div:nth-child(2) li {
-  /* border: 2px solid red; */
-  color: #efefef;
+  /* color: #efefef;
   margin: 12px 0;
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
+  color: #efefef;
+  margin: 12px 0;
+  font-size: 20px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .footer-container > div:nth-child(2) li a {
@@ -89,6 +97,14 @@
   margin-right: 20px;
   width: 20px;
   text-align: center;
+}
+
+.footer-container > div:nth-child(2) li:nth-child(2).email {
+  font-family: system-ui, sans-serif;
+}
+
+.footer-container > div:nth-child(2) li:nth-child(2).email a {
+  font-size: 18px;
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
