@@ -1,0 +1,21 @@
+.top-page-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 10px 15px;
+    color: #0047ab;
+    border-color: #0047ab;
+    /* border-width: 0; */
+    border-radius: 50%;
+    transition: color .3s ease;
+    /* font-size: 1rem; */
+}
+
+.top-page-button img {
+    width: 20px;
+}
+
+.top-page-button:hover {
+    cursor: pointer;
+    background-color: rgb(235, 231, 231);
+}

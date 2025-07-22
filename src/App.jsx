@@ -11,6 +11,7 @@ import Banner from "./components/RootComponents/Banner/Banner";
 import Nav from "./components/RootComponents/Nav/Nav";
 import Footer from "./components/RootComponents/Footer/Footer";
 import ServicesPage from "./pages/ServicesPage/ServicesPage";
+import TopPageButton from "./components/RootComponents/TopPageButton/TopPageButton";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/apply-now" element={<ApplicationPage />} />
       </Routes>
+      <TopPageButton />
       <Footer />
     </>
   );

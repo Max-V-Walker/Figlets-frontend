@@ -37,7 +37,7 @@ const FooterComponent = () => {
             <i>
               <HiOutlineMail />
             </i>
-            chrisitan @figletsconstruction.com
+            chrisitan@figletsconstruction.com
           </li>
           <li>
             <i>
