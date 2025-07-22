@@ -74,7 +74,7 @@
 .application-form input[type="text"],
 .application-form input[type="number"],
 .application-form input[type="date"] {
-  /* border: 2px solid red; */
+  border: 1px solid #ccc;
   width: 95%;
   height: 45px;
   padding-left: 5px;
