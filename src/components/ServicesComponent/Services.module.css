@@ -1,6 +1,5 @@
 .services-container {
   /* border: 3px solid red; */
-  /* background-color: #0047ab; */
   padding: 15px;
   font-family: "Stardos Stencil", system-ui;
 }
@@ -8,10 +7,43 @@
 .background-hero-img {
   /* border: 3px solid red; */
   height: 500px;
+  height: 70vh;
   background-image: url("/images/home/project7/img1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: none;
+  padding-top: 1px;
+  z-index: 0;
+  position: relative;
+}
+
+.background-hero-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.50), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.background-hero-img p {
+  /* border: 3px solid red; */
+  font-size: 3.5rem;
+  height: fit-content;
+  width: min-content;
+  margin: 112% 30px 0 auto;
+  text-align: right;
+  color: white;
+  letter-spacing: -0.5px;
+  line-height: 50px;
+  letter-spacing: .5px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+  font-family: "Stardos Stencil", system-ui;
+  position: relative;
+  z-index: 3;
 }
 
 .services-container > h1 {
@@ -62,20 +94,10 @@
   width: 55px;
 }
 
-.all-services {
-  /* border: 5px solid green; */
-  /* margin-top: 20px; */
-}
-
-.service {
-  /* border: 3px solid royalblue; */
-}
-
 .service-title {
   /* border: 2px solid black; */
   color: #0047ab;
   text-align: center;
-  /* text-decoration: underline; */
   cursor: pointer;
   font-size: 1.8rem;
   font-weight: 800;
@@ -146,11 +168,20 @@
   .background-hero-img {
     /* border: 3px solid red; */
     height: 550px;
+    height: 75vh;
     background-image: url("/images/kitchen/project4/img1.jpg");
     object-fit: cover;
     /* background-size: cover; */
     background-position: center;
     background-repeat: none;
+  }
+
+  .background-hero-img p {
+    /* border: 2px solid red; */
+    text-align: left;
+    margin: 0;
+    margin: 30% auto 5px 8vw;
+    /* width: fit-content; */
   }
 
   .services-container > h1 {
@@ -190,7 +221,7 @@
   }
 
   .social-icon {
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
 
   .social-icon:hover {
@@ -229,9 +260,9 @@
     overflow: hidden;
     height: 0;
     padding: 20px 0;
-    transition: height .3s ease, padding .3s ease;
+    transition: height 0.3s ease, padding 0.3s ease;
   }
-  
+
   .projects-inner {
     /* border: 3px solid royalblue; */
     display: grid;
@@ -258,9 +289,9 @@
     border-radius: 8px;
     cursor: pointer;
     border: 3px solid transparent;
-    transition: transform .3s ease, border .3s ease;
+    transition: transform 0.3s ease, border 0.3s ease;
   }
-  
+
   .project:hover {
     border: 3px solid #0047ab;
     transform: translateY(-5px);

@@ -16,7 +16,21 @@ const Services = () => {
       <p>Explore some of the home renovation services we offer</p>
       <div className={styles.services}>
         <Link
-          to="/our-services"
+          to="/our-services#Kitchen"
+          className={styles.service}
+          onClick={() => {
+            ReactGA.event({
+              category: "CTA",
+              action: "Click",
+              label: "Services Home → Kitchens",
+            });
+          }}
+        >
+          <img src={KitchenServiceImg} alt="Kitchen Services" loading="lazy" />
+          <p>Kitchens 🍳</p>
+        </Link>
+        <Link
+          to="/our-services#Bathroom"
           className={styles.service}
           onClick={() => {
             ReactGA.event({
@@ -32,20 +46,6 @@ const Services = () => {
             loading="lazy"
           />
           <p>Bathrooms 🛁</p>
-        </Link>
-        <Link
-          to="/our-services"
-          className={styles.service}
-          onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Services Home → Kitchens",
-            });
-          }}
-        >
-          <img src={KitchenServiceImg} alt="Kitchen Services" loading="lazy" />
-          <p>Kitchens 🍳</p>
         </Link>
         <Link
           to="/our-services"

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ReactGA from "react-ga4";
 
 import servicesData from "../../data/servicesData";
@@ -16,6 +16,8 @@ const Services = () => {
   const [expandedHeight, setExpandedHeight] = useState(0);
   const [isShowModal, setIsShowModal] = useState(false);
   const [projectToShow, setProjectToShow] = useState(null);
+  const location = useLocation();
+  const serviceRefs = useRef({});
 
   const serviceClickHandler = (service) => {
     const isExpanded = expandedService === service.service;
@@ -84,9 +86,30 @@ const Services = () => {
     };
   }, [isShowModal]);
 
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (!hash) return;
+
+    const targetRef = serviceRefs.current[hash];
+    const targetService = servicesData.find((s) => s.service === hash);
+
+    if (targetService && targetRef?.current) {
+      serviceClickHandler(targetService);
+
+      requestAnimationFrame(() => {
+        targetRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
+  }, [location]);
+
   return (
     <>
-      <div className={styles["background-hero-img"]}></div>
+      <div className={styles["background-hero-img"]}>
+        <p>Our Services</p>
+      </div>
       <section className={styles["services-container"]}>
         <h1>
           Transform Your Space With Figlet's - NJ's Trusted Contractor for
@@ -158,74 +181,87 @@ const Services = () => {
         </div>
 
         <div className={styles["all-services"]}>
-          {servicesData.map((service) => (
-            <div key={service.id} className={styles.service}>
-              <h2
-                className={styles["service-title"]}
-                onClick={() => {
-                  serviceClickHandler(service);
-
-                  ReactGA.event({
-                    category: "CTA",
-                    action: "Click",
-                    label: `Services Page → ${service.service}`,
-                  });
-                }}
-              >
-                {service.service} {service.service === "Kitchen" && "⏲️"}
-                {service.service === "Bathroom" && "🛁"}
-                {service.service === "Home" && "🏠"}
-                {expandedService === service.service ? (
-                  <MdExpandLess className={styles["expand-icons"]} />
-                ) : (
-                  <MdExpandMore className={styles["expand-icons"]} />
-                )}
-              </h2>
-
+          {servicesData.map((service) => {
+            if (!serviceRefs.current[service.service]) {
+              serviceRefs.current[service.service] = React.createRef();
+            }
+            return (
               <div
-                className={styles.projects}
-                style={{
-                  height:
-                    expandedService === service.service
-                      ? `${expandedHeight}px`
-                      : "0px",
-                  padding:
-                    expandedService === service.service ? "5px 0 25px" : "0px",
-                }}
+                key={service.id}
+                className={styles.service}
+                ref={serviceRefs.current[service.service]}
               >
-                <div>
-                  <div className={styles["projects-inner"]}>
-                    {service.projects.map((project, index) => (
-                      <div
-                        key={index}
-                        className={styles.project}
-                        onClick={() => {
-                          projectClickHandler(project);
+                <h2
+                  className={styles["service-title"]}
+                  onClick={() => {
+                    serviceClickHandler(service);
 
-                          ReactGA.event({
-                            category: "CTA",
-                            action: "Click",
-                            label: `Services Page → ${service.service} - ${project.title}`,
-                          });
-                        }}
-                      >
-                        <h3 className={styles["project-title"]}>
-                          {project.title || "Check this!"}
-                        </h3>
-                        <div>
-                          <img
-                            src={project.images[0]}
-                            alt={project.title}
-                            className={styles["product-cover-image"]}
-                          />
+                    ReactGA.event({
+                      category: "CTA",
+                      action: "Click",
+                      label: `Services Page → ${service.service}`,
+                    });
+                  }}
+                >
+                  {service.service}
+                  {service.service === "Kitchen" && " ⏲️"}
+                  {service.service === "Home" && " 🏠"}
+                  {service.service === "Bathroom" && " 🛁"}
+                  {expandedService === service.service ? (
+                    <MdExpandLess className={styles["expand-icons"]} />
+                  ) : (
+                    <MdExpandMore className={styles["expand-icons"]} />
+                  )}
+                </h2>
+
+                <div
+                  className={styles.projects}
+                  style={{
+                    height:
+                      expandedService === service.service
+                        ? `${expandedHeight}px`
+                        : "0px",
+                    padding:
+                      expandedService === service.service
+                        ? "5px 0 25px"
+                        : "0px",
+                  }}
+                  id="bathrooms"
+                >
+                  <div>
+                    <div className={styles["projects-inner"]}>
+                      {service.projects.map((project, index) => (
+                        <div
+                          key={index}
+                          className={styles.project}
+                          onClick={() => {
+                            projectClickHandler(project);
+
+                            ReactGA.event({
+                              category: "CTA",
+                              action: "Click",
+                              label: `Services Page → ${service.service} - ${project.title}`,
+                            });
+                          }}
+                        >
+                          <h3 className={styles["project-title"]}>
+                            {project.title || "Check this!"}
+                          </h3>
+                          <div>
+                            <img
+                              src={project.images[0]}
+                              alt={project.title}
+                              className={styles["product-cover-image"]}
+                            />
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
       {isShowModal && projectToShow && (
