@@ -95,7 +95,7 @@
   width: 95%;
   height: 115px;
   padding: 5px;
-  border: 1px solid #333;
+  border: 1px solid #ccc;
   border-radius: 3px;
   background-clip: padding-box;
   transform: translate3d(0, 0, 0);
@@ -107,7 +107,7 @@
 
 .application-form input {
   transform: translateZ(0);
-  border: 1px solid #333;
+  border: 1px solid #ccc;
   border-radius: 3px;
   background-clip: padding-box;
   transform: translate3d(0, 0, 0);
