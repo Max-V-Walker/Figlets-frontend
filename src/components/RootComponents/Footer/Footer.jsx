@@ -21,7 +21,6 @@ const FooterComponent = () => {
       <div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57397.024674205655!2d-74.32853886777875!3d40.469511523450855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xac9d5711bb0a4cc3%3A0xcff746874deb91b8!2sFiglet&#39;s%20Construction%20LLC!5e0!3m2!1sen!2sus!4v1750309417872!5m2!1sen!2sus"
-          loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className={styles.map}
         ></iframe>
