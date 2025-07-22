@@ -7,9 +7,6 @@
     border-color: #0047ab;
     border-radius: 50%;
     transition: color .3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .top-page-button img {
