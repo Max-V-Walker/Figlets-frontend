@@ -38,13 +38,18 @@ https://www.figletsconstruction.com/
 * Nodemailer, Chromium, Puppeteer 
 
 ## Screenshots
-<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 22 55 PM" src="https://github.com/user-attachments/assets/b2a03ece-<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 23 05 PM" src="https://github.com/user-attachments/assets/ca0eb281-bbed-46f4-9f36-80aeb1271e6c" />
-0bc2-4490-bbbf-fb7d960c43af" />
-
-
-![Uploading Screenshot 2025-07-23 at 1.23.05 PM.png…]()
 
 ### Mobile
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 22 55 PM" src="https://github.com/user-attachments/assets/ec0e816d-45a9-4eb6-b0d2-5bea4bf58f28" />
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 23 05 PM" src="https://github.com/user-attachments/assets/5bef3211-1ac0-41af-85c7-da926a9bff39" />
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 23 28 PM" src="https://github.com/user-attachments/assets/84fb85bc-3e74-4576-b60e-fa0d3f3a68f6" />
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 24 06 PM" src="https://github.com/user-attachments/assets/2ea86d4c-0f42-4d25-87b2-0baab031b644" />
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 24 35 PM" src="https://github.com/user-attachments/assets/2008f2db-7ac8-4726-b559-7bcc688b55da" />
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 24 52 PM" src="https://github.com/user-attachments/assets/3004929a-f724-4eab-9cd5-9104ee11a150" />
+
+
+
+
 
 
 ### Desktop
