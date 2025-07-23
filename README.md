@@ -3,7 +3,7 @@
 Custom business website built to show users information, and services provided by Figlets. 
 
 ## Live Site
-https://www.figletsconstruction.com/
+<a href="https://www.figletsconstruction.com/" target="_blank">https://www.figletsconstruction.com/</a>
 
 ## Features
 
