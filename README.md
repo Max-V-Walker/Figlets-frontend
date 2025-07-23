@@ -8,7 +8,7 @@ https://www.figletsconstruction.com/
 ## Features
 
 * Full Stack Application
-* Frontend Hosted With Netlify. Backend Hosted With OnRender.
+* Frontend Hosted With Netlify. Backend Hosted With Render.
 * Custom Domain
 * Mobile-first Responsive Design
 * Google Analytic Tracking
@@ -29,6 +29,8 @@ https://www.figletsconstruction.com/
 * CSS Modules
 * Node.js
 * Express.js
+* Netlify
+* Render
 * Google Analytics 4 (GA4)
 * Google Places API
 * EmailJS
