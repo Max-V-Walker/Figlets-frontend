@@ -14,10 +14,10 @@ const ReviewCard = ({
   profile_photo_url,
   rating,
   relative_time_description,
+  index,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const googleUrl =
-    "https://www.google.com/search?q=figlets+construction&rlz=1C5CHFA_enUS943US944&oq=figlets+construction&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIQCAEQLhgKGBYYHhivARjHATIKCAIQABiABBiiBDIKCAMQABiiBBiJBTIKCAQQABiABBiiBDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDcwMzdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0xac9d5711bb0a4cc3:0xcff746874deb91b8,1,,,,";
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
@@ -49,7 +49,6 @@ const ReviewCard = ({
         className={styles["read-more"]}
         onClick={() => {
           setIsExpanded((preVal) => !preVal);
-
           ReactGA.event({
             category: "CTA",
             action: "Click",

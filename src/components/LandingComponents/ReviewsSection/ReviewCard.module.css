@@ -60,7 +60,7 @@ a {
   max-height: 120px;
 }
 
-.text.expanded {
+.expanded {
   display: block;
   max-height: 1000px;
 }

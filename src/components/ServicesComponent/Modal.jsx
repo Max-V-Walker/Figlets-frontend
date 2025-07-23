@@ -27,6 +27,7 @@ const Modal = ({ project, closeModal }) => {
         </button>
 
         <h2 className={styles["project-title"]}>{project.title}</h2>
+        <hr />
         <p className={styles["project-description"]}>{project.description}</p>
         <p className={styles["project-time"]}>
           {project.time} - {project.location}

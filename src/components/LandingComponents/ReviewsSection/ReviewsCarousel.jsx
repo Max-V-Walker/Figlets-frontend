@@ -120,7 +120,7 @@ const ReviewCarousel = ({ reviews }) => {
                   </a>
                 </div>
               ) : (
-                <ReviewCard {...review} />
+                <ReviewCard {...review} index={i} />
               )}
             </div>
           ))}
