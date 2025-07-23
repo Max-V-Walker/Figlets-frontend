@@ -38,7 +38,13 @@ https://www.figletsconstruction.com/
 * Nodemailer, Chromium, Puppeteer 
 
 ## Screenshots
+<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 22 55 PM" src="https://github.com/user-attachments/assets/b2a03ece-<img width="468" height="749" alt="Screenshot 2025-07-23 at 1 23 05 PM" src="https://github.com/user-attachments/assets/ca0eb281-bbed-46f4-9f36-80aeb1271e6c" />
+0bc2-4490-bbbf-fb7d960c43af" />
+
+
+![Uploading Screenshot 2025-07-23 at 1.23.05 PM.png…]()
 
 ### Mobile
+
 
 ### Desktop
