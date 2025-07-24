@@ -39,10 +39,12 @@
 
 .project-title {
   /* border: 2px solid red; */
+  width: 90%;
   margin-bottom: 10px;
   font-size: 2rem;
   text-align: left;
-  line-height: 35px;
+  line-height: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, .8);
 }
 
 .project-description {
@@ -51,15 +53,13 @@
   line-height: 21px;
   text-align: left;
   margin: 10px auto;
-  font-weight: 500;
 }
 
 .project-time {
   /* border: 2px solid green; */
   margin-top: -10px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: left;
-  font-weight: 100;
 }
 
 .image-carousel {
