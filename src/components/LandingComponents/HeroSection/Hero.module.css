@@ -1,7 +1,7 @@
 /* Mobile */
 .hero-container {
   /* border: 2px solid red; */
-  height: 75dvh;
+  height: 75vh;
   background-image: url("../../../assets/images/hero-image-mobile.png");
   background-size: cover;
   background-position: center;
