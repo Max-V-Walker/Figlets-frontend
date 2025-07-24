@@ -7,7 +7,7 @@
 .background-hero-img {
   /* border: 3px solid red; */
   height: 500px;
-  height: 60vh;
+  height: 75dvh;
   background-image: url("/images/home/project7/img1.jpg");
   background-size: cover;
   background-position: center;
