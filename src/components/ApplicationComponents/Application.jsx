@@ -95,6 +95,11 @@ const Application = () => {
       label: "Application Form",
     });
 
+    ReactGA.event("form_submit", {
+      location: "Application_Page",
+      form_name: "Job Application Form"
+    });
+
     fetch(`${baseURL}/submit-application`, {
       method: "POST",
       headers: {

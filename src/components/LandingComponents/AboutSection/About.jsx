@@ -28,10 +28,9 @@ const About = () => {
           <NavLink
             to="/about-us"
             onClick={() => {
-              ReactGA.event({
-                category: "CTA",
-                action: "Click",
-                label: "About → Learn More",
+              ReactGA.event("cta_click", {
+                section: "About",
+                button_text: "Learn More",
               });
             }}
           >
@@ -43,10 +42,9 @@ const About = () => {
               href="https://www.instagram.com/figletsconstruction/"
               target="_blank"
               onClick={() => {
-                ReactGA.event({
-                  category: "CTA",
-                  action: "Click",
-                  label: "About → IG",
+                ReactGA.event("link_click", {
+                  section: "About",
+                  button_text: "IG",
                 });
               }}
             >
@@ -60,10 +58,9 @@ const About = () => {
               href="https://www.facebook.com/figlets/"
               target="_blank"
               onClick={() => {
-                ReactGA.event({
-                  category: "CTA",
-                  action: "Click",
-                  label: "About → FB",
+                ReactGA.event("cta_click", {
+                  section: "About",
+                  button_text: "FB",
                 });
               }}
             >

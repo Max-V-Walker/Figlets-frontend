@@ -14,10 +14,9 @@ const Banner = () => {
   const closeBannerHandler = () => {
     setIsShowBanner(false);
 
-    ReactGA.event({
-      category: "CTA",
-      action: "Click",
-      label: "Banner → Close Banner",
+    ReactGA.event("cta_click", {
+      section: "Banner",
+      button_text: "Close Banner",
     });
   };
 
@@ -31,7 +30,7 @@ const Banner = () => {
         isShowBanner ? styles["show-banner"] : styles["hide-banner"]
       }`}
     >
-      <p style={{fontFamily: "system-ui, sans-serif"}}>
+      <p style={{ fontFamily: "system-ui, sans-serif" }}>
         <span>
           <HiOutlineMail />
         </span>
@@ -42,10 +41,9 @@ const Banner = () => {
         <Link
           to="/contact-us"
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Banner → Free Estimate",
+            ReactGA.event("cta_click", {
+              section: "Banner",
+              button_text: "Free Estimate",
             });
           }}
         >
@@ -58,10 +56,9 @@ const Banner = () => {
           href="https://www.instagram.com/figletsconstruction/"
           target="_blank"
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Banner → IG",
+            ReactGA.event("link_click", {
+              section: "Banner",
+              button_text: "IG",
             });
           }}
         >
@@ -75,6 +72,10 @@ const Banner = () => {
               category: "CTA",
               action: "Click",
               label: "Banner → FB",
+            });
+            ReactGA.event("link_click", {
+              section: "Banner",
+              button_text: "FB",
             });
           }}
         >

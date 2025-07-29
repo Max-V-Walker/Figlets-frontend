@@ -59,7 +59,11 @@ const FooterComponent = () => {
             8:00 am - 6:00 pm
           </li>
           <li>
-            <a href={reviewsUrl} target="_blank" className={styles["leave-a-review"]}>
+            <a
+              href={reviewsUrl}
+              target="_blank"
+              className={styles["leave-a-review"]}
+            >
               <i>
                 <MdRateReview />
               </i>
@@ -74,10 +78,9 @@ const FooterComponent = () => {
                   href="https://www.instagram.com/figletsconstruction/"
                   target="_blank"
                   onClick={() => {
-                    ReactGA.event({
-                      category: "CTA",
-                      action: "Click",
-                      label: "Footer → IG",
+                    ReactGA.event("link_click", {
+                      section: "Footer",
+                      button_text: "IG",
                     });
                   }}
                 >
@@ -89,10 +92,9 @@ const FooterComponent = () => {
                   href="https://www.facebook.com/figlets/"
                   target="_blank"
                   onClick={() => {
-                    ReactGA.event({
-                      category: "CTA",
-                      action: "Click",
-                      label: "Footer → FB",
+                    ReactGA.event("link_click", {
+                      section: "Footer",
+                      button_text: "FB",
                     });
                   }}
                 >

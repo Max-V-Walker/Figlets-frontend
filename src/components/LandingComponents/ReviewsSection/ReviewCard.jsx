@@ -49,10 +49,9 @@ const ReviewCard = ({
         className={styles["read-more"]}
         onClick={() => {
           setIsExpanded((preVal) => !preVal);
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Reviews → Read more",
+          ReactGA.event("cta_click", {
+            section: "Reviews",
+            button_text: "Read More",
           });
         }}
       >

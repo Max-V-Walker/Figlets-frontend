@@ -52,11 +52,9 @@ const Nav = () => {
         to="/about-us"
         onClick={() => {
           setIsBurgerClicked(false);
-
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → About Us",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "About Us",
           });
         }}
       >
@@ -66,11 +64,9 @@ const Nav = () => {
         href="#reviews"
         onClick={() => {
           setIsBurgerClicked(false);
-
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Reviews",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Reviews",
           });
         }}
       >
@@ -81,10 +77,9 @@ const Nav = () => {
         onClick={() => {
           setIsBurgerClicked(false);
 
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Services",
+         ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Services",
           });
         }}
       >
@@ -95,10 +90,9 @@ const Nav = () => {
         onClick={() => {
           setIsBurgerClicked(false);
 
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Contact Us",
+         ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Contact Us",
           });
         }}
       >
@@ -109,10 +103,9 @@ const Nav = () => {
         onClick={() => {
           setIsBurgerClicked(false);
 
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Apply Now",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Apply Now",
           });
         }}
       >
@@ -123,10 +116,9 @@ const Nav = () => {
         onClick={() => {
           setIsBurgerClicked(false);
 
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Get A Quote",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Get A Quote",
           });
         }}
       >
@@ -140,10 +132,9 @@ const Nav = () => {
       <Link
         to="/about-us"
         onClick={() => {
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → About Us",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "About Us",
           });
         }}
       >
@@ -152,10 +143,9 @@ const Nav = () => {
       <a
         href="#reviews"
         onClick={() => {
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Reviews",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Reviews",
           });
         }}
       >
@@ -164,10 +154,9 @@ const Nav = () => {
       <Link
         to="/our-services"
         onClick={() => {
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Services",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Services",
           });
         }}
       >
@@ -176,10 +165,9 @@ const Nav = () => {
       <Link
         to="/contact-us"
         onClick={() => {
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Contact Us",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Contact Us",
           });
         }}
       >
@@ -189,10 +177,9 @@ const Nav = () => {
         to="/apply-now"
         className={styles["apply-now"]}
         onClick={() => {
-          ReactGA.event({
-            category: "CTA",
-            action: "Click",
-            label: "Nav → Apply Now",
+          ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Apply Now",
           });
         }}
       >
@@ -222,11 +209,10 @@ const Nav = () => {
           to="/contact-us"
           id={styles["quote-button"]}
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Nav → Get A Quote",
-            });
+            ReactGA.event("cta_click", {
+            section: "Nav",
+            button_text: "Get A Quote",
+          });
           }}
         >
           Get A Quote

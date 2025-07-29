@@ -19,10 +19,9 @@ const Services = () => {
           to="/our-services#Kitchen"
           className={styles.service}
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Services Home → Kitchens",
+            ReactGA.event("cta_click", {
+              section: "Services",
+              button_text: "Kitchens",
             });
           }}
         >
@@ -33,10 +32,9 @@ const Services = () => {
           to="/our-services#Bathroom"
           className={styles.service}
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Services Home → Bathrooms",
+            ReactGA.event("cta_click", {
+              section: "Services",
+              button_text: "Bathrooms",
             });
           }}
         >
@@ -51,10 +49,9 @@ const Services = () => {
           to="/our-services"
           className={styles.service}
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Services Home → FencingDecksConcrete",
+            ReactGA.event("cta_click", {
+              section: "Services",
+              button_text: "FencingDecksConcrete",
             });
           }}
         >
@@ -69,10 +66,9 @@ const Services = () => {
           to="/our-services"
           className={styles.service}
           onClick={() => {
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Services Home → Dumpster/Demolition",
+            ReactGA.event("cta_click", {
+              section: "Services",
+              button_text: "DumpsterDemolition",
             });
           }}
         >

@@ -34,10 +34,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true);
 
-    ReactGA.event({
-      category: "Form",
-      action: "Submit",
-      label: "Contact Form",
+    ReactGA.event("form_submit", {
+      location: "Contact_Page",
+      form_name: "Contact Form"
     });
 
     emailjs

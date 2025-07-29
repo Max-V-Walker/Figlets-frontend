@@ -12,10 +12,9 @@ const Hero = () => {
           <Link
             to="/contact-us"
             onClick={() => {
-              ReactGA.event({
-                category: "CTA",
-                action: "Click",
-                label: "Hero → Free Estimate",
+              ReactGA.event("cta_click", {
+                section: "Hero",
+                button_text: "Free Estimate",
               });
             }}
           >

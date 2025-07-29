@@ -133,10 +133,9 @@ const Services = () => {
           <Link
             to="/contact-us"
             onClick={() => {
-              ReactGA.event({
-                category: "CTA",
-                action: "Click",
-                label: "Services Page → Get A Quote",
+              ReactGA.event("cta_click", {
+                section: "Services_Page",
+                button_text: "Get A Quote",
               });
             }}
           >
@@ -147,10 +146,9 @@ const Services = () => {
               href="https://www.instagram.com/figletsconstruction/"
               target="_blank"
               onClick={() => {
-                ReactGA.event({
-                  category: "CTA",
-                  action: "Click",
-                  label: "Services Page → IG",
+                ReactGA.event("link_click", {
+                  section: "Services_Page",
+                  button_text: "IG",
                 });
               }}
             >
@@ -164,10 +162,9 @@ const Services = () => {
               href="https://www.facebook.com/figlets/"
               target="_blank"
               onClick={() => {
-                ReactGA.event({
-                  category: "CTA",
-                  action: "Click",
-                  label: "Services Page → FB",
+                ReactGA.event("link_click", {
+                  section: "Services_Page",
+                  button_text: "FB",
                 });
               }}
             >
@@ -196,10 +193,9 @@ const Services = () => {
                   onClick={() => {
                     serviceClickHandler(service);
 
-                    ReactGA.event({
-                      category: "CTA",
-                      action: "Click",
-                      label: `Services Page → ${service.service}`,
+                    ReactGA.event("cta_click", {
+                      section: "Services_Page",
+                      button_text: `${service.service}`,
                     });
                   }}
                 >
@@ -241,6 +237,11 @@ const Services = () => {
                               category: "CTA",
                               action: "Click",
                               label: `Services Page → ${service.service} - ${project.title}`,
+                            });
+
+                            ReactGA.event("cta_click", {
+                              section: "Services_Page",
+                              button_text: `${service.service} - ${project.title}`
                             });
                           }}
                         >

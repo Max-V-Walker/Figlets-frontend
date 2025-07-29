@@ -109,10 +109,9 @@ const ReviewCarousel = ({ reviews }) => {
                     rel="noopener noreferrer"
                     className={styles.readMore}
                     onClick={() => {
-                      ReactGA.event({
-                        category: "CTA",
-                        action: "Click",
-                        label: "Reviews → View All",
+                      ReactGA.event("link_click", {
+                        section: "Reviews",
+                        button_text: "View All",
                       });
                     }}
                   >
@@ -129,7 +128,13 @@ const ReviewCarousel = ({ reviews }) => {
 
       <div className={styles.arrowContainer}>
         <button
-          onClick={() => scroll("left")}
+          onClick={() => {
+            scroll("left");
+            ReactGA.event("cta_click", {
+              section: "Reviews",
+              button_text: "Previous Review",
+            });
+          }}
           className={styles.arrow}
           disabled={
             (window.innerWidth >= 768 && atStart) ||
@@ -142,10 +147,9 @@ const ReviewCarousel = ({ reviews }) => {
           onClick={() => {
             scroll("right");
 
-            ReactGA.event({
-              category: "CTA",
-              action: "Click",
-              label: "Reviews → Next Review",
+            ReactGA.event("cta_click", {
+              section: "Reviews",
+              button_text: "Next Review",
             });
           }}
           className={styles.arrow}
