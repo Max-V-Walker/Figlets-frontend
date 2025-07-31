@@ -89,12 +89,6 @@ const Application = () => {
       signature: signatureDataURL,
     };
 
-    ReactGA.event({
-      category: "Form",
-      action: "Submit",
-      label: "Application Form",
-    });
-
     ReactGA.event("form_submit", {
       location: "Application_Page",
       form_name: "Job Application Form"
