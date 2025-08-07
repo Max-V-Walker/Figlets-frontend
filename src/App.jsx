@@ -34,6 +34,7 @@ function App() {
         <Route path="/our-services" element={<ServicesPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/apply-now" element={<ApplicationPage />} />
+        <Route path="/book-now" element={<BookNowPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <TopPageButton />
