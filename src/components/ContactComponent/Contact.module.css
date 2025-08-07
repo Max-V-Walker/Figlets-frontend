@@ -32,6 +32,7 @@
 }
 
 .contact-form div input {
+  border: 1px solid #ccc;
   width: 95%;
   height: 45px;
   padding-left: 5px;
@@ -44,6 +45,7 @@
 }
 
 .contact-form div select {
+  border: 1px solid #ccc;
   width: 150px;
   width: 150px;
   height: 45px;
@@ -56,7 +58,7 @@
 }
 
 .contact-form div textarea {
-  /* border: 2px solid blue; */
+  border: 1px solid #ccc;
   resize: none;
   width: 100%;
   height: 200px;
