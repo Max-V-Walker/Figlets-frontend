@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import ApplicationPage from "./pages/ApplicationPage/ApplicationPage";
+import BookNowPage from "./pages/BookNowPage/BookNowPage";
 
 import Banner from "./components/RootComponents/Banner/Banner";
 import Nav from "./components/RootComponents/Nav/Nav";
@@ -34,7 +35,7 @@ function App() {
         <Route path="/our-services" element={<ServicesPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/apply-now" element={<ApplicationPage />} />
-        <Route path="/book-now" element={<BookNowPage />} />
+        {/* <Route path="/book-now" element={<BookNowPage />} /> */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <TopPageButton />
