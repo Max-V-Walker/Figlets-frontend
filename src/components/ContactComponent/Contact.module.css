@@ -1,7 +1,7 @@
 .contact-form-container {
   font-family: "Stardos Stencil", system-ui;
   background-color: rgba(0, 71, 171, 0.85);
-  padding: 15px 15px 25px;
+  padding: 25px 15px 25px;
 }
 
 .contact-form-container h2 {
@@ -115,7 +115,7 @@
     max-width: 750px;
     margin: 0 auto;
     padding: 3rem;
-    background-color: #ffffff; /* or keep transparent if you want */
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
   }

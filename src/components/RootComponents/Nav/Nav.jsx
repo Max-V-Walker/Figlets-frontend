@@ -112,17 +112,18 @@ const Nav = () => {
         Apply Now
       </Link>
       <Link
-        to="/contact-us"
+        to="/book-now"
+        className={styles["book-now"]}
         onClick={() => {
           setIsBurgerClicked(false);
 
           ReactGA.event("cta_click", {
             section: "Nav",
-            button_text: "Get A Quote",
+            button_text: "Book Estimate",
           });
         }}
       >
-        Get A Quote
+        Book Estimate
       </Link>
     </div>
   );
@@ -206,16 +207,16 @@ const Nav = () => {
         {desktopNav}
         {/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */}
         <Link
-          to="/contact-us"
-          id={styles["quote-button"]}
+          to="/book-now"
+          id={styles["book-now-button"]}
           onClick={() => {
             ReactGA.event("cta_click", {
             section: "Nav",
-            button_text: "Get A Quote",
+            button_text: "Book Free Estimate",
           });
           }}
         >
-          Get A Quote
+          Book An Estimate
         </Link>
 
         <img

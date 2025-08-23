@@ -10,15 +10,15 @@ const Hero = () => {
         <h1>NJ's Go-To Home Improvement Contractor</h1>
         <p className={styles["estimate-button"]}>
           <Link
-            to="/contact-us"
+            to="/book-now"
             onClick={() => {
               ReactGA.event("cta_click", {
                 section: "Hero",
-                button_text: "Free Estimate",
+                button_text: "Schedule My Estimate",
               });
             }}
           >
-            Get A Free Estimate
+            Schedule My Estimate
           </Link>
         </p>
       </div>

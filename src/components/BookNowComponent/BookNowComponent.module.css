@@ -1,0 +1,223 @@
+.modalOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Stardos Stencil", system-ui;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalContent label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 auto;
+}
+
+.modalContent input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 50%;
+  height: 45px;
+  margin: 0 auto;
+  font-family: "Stardos Stencil", system-ui;
+}
+
+.modalContent button {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: 60%;
+  margin: 0 auto;
+  color: white;
+  background-color: #0047ab;
+  font-family: "Stardos Stencil", system-ui;
+}
+
+.close-btn {
+  position: fixed;
+  top: 30px;
+  left: 25px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* .modalContent button:not([type="submit"]) {
+  background: #e5e7eb;
+  color: white;
+} */
+
+.book-now-container {
+  background-color: rgba(0, 71, 171, 0.85);
+  font-family: "Stardos Stencil", system-ui;
+  text-align: center;
+}
+
+.intro-section {
+  padding: 45px 15px 25px;
+}
+
+.intro-section h1 {
+  /* border: 2px solid red; */
+  color: white;
+  font-size: 2.55rem;
+  margin: 0 auto 30px;
+  letter-spacing: 0.8px;
+  word-spacing: -4px;
+  line-height: 47px;
+}
+
+.what-you-get {
+  /* border: 2px solid red; */
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icon {
+  /* border: 1px solid white; */
+  font-size: 3rem;
+  color: white;
+  width: 40px;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+}
+
+.what-you-get div {
+  /* border: 1px solid black; */
+  color: white;
+  text-align: left;
+  width: 300px;
+  padding-left: 15px;
+}
+
+.title {
+  /* border: 1px solid white; */
+  font-size: 2rem;
+  word-spacing: -1px;
+  line-height: 32px;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+.free-estimate {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 14px;
+  width: 75%;
+  margin: 25px auto 0;
+}
+
+.select-below {
+  /* border: 2px solid black; */
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-size: 2rem;
+  background-color: #f60606;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: -25px;
+  position: relative;
+  z-index: 50;
+  letter-spacing: -0.5px;
+  word-spacing: -0.5px;
+}
+
+.iframe-container {
+  /* border: 3px solid red; */
+  background-color: white;
+  padding-top: 35px;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+/* Desktop design */
+@media (min-width: 768px) {
+  .book-now-container section h1 {
+    /* border: 2px solid red; */
+    font-size: 2.5rem;
+    width: 35%;
+    max-width: 600px;
+    line-height: 42px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+  }
+
+  .book-now-container section p:nth-child(2) {
+    width: 55%;
+    max-width: 850px;
+    font-size: 1.5rem;
+    line-height: 28px;
+  }
+
+  .what-you-get {
+    /* border: 2px solid red; */
+    /* height: 100px; */
+    font-size: 1.5rem !important;
+    width: 30% !important;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    align-items: center;
+  }
+
+  .icon {
+    /* border: 1px solid white; */
+
+  }
+
+  .title {
+    /* border: 1px solid white; */
+    line-height: 38px;
+  }
+
+  .description {
+    /* border: 1px solid black; */
+    width: 120% !important;
+    font-size: 1.2rem;
+  }
+
+  .get-list {
+    /* border: 2px solid white; */
+    width: 25%;
+    display: inline-block;
+    text-align: left;
+    padding-left: 1.2rem;
+    margin: -20px auto 20px;
+    list-style-position: outside;
+  }
+
+  .select-below {
+    width: 25%;
+    word-spacing: -0.5px;
+    margin-bottom: -35px !important;
+  }
+}
