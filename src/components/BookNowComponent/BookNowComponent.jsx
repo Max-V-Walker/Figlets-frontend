@@ -21,7 +21,7 @@ const BookNowComponent = () => {
     const zip = e.target.elements.zip.value.trim();
     if (!/^\d{5}(-\d{4})?$/.test(zip)) return alert("Enter a valid ZIP");
 
-    const res = await fetch("http://localhost:5050/api/distance", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/distance`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ zip }),
