@@ -1,11 +1,18 @@
-import React from 'react';
+import { useEffect } from "react";
+
+import BookNowComponent from "../../components/BookNowComponent/BookNowComponent";
+import Reviews from "../../components/LandingComponents/ReviewsSection/Reviews";
 
 const BookNowPage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <>
+      <BookNowComponent />
+      <Reviews />
+    </>
+  );
 };
 
 export default BookNowPage;

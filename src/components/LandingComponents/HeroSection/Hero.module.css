@@ -42,7 +42,6 @@
   letter-spacing: -0.5px;
   line-height: 40px;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
-
 }
 
 .hero-content p {
@@ -53,8 +52,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  margin-top: -25px;
+  margin-top: -40px;
   text-decoration: none;
+  box-shadow: 0 6px 14px rgba(225, 29, 42, 0.25);
+  border-radius: 9999px;
+  word-spacing: -2px;
+  z-index: 2;
 }
 
 .hero-content p a {

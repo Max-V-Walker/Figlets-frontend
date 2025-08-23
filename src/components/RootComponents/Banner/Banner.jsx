@@ -39,15 +39,15 @@ const Banner = () => {
 
       <p>
         <Link
-          to="/contact-us"
+          to="/book-now"
           onClick={() => {
             ReactGA.event("cta_click", {
               section: "Banner",
-              button_text: "Free Estimate",
+              button_text: "Book An Estimate",
             });
           }}
         >
-          Contact Today For A Free Estimate!
+         Book An Estimate Today!
         </Link>
       </p>
 
