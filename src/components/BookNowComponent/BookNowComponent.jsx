@@ -54,6 +54,34 @@ const BookNowComponent = () => {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
+  useEffect(() => {
+    if (isShowModal) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.setProperty(
+        "overflow",
+        "hidden",
+        "important"
+      );
+    } else {
+      document.body.style.overflow = "visible";
+      document.documentElement.style.setProperty(
+        "overflow",
+        "auto",
+        "important"
+      );
+    }
+
+    return () => {
+      // Cleanup: always reset overflow when component unmounts
+      document.body.style.overflow = "visible";
+      document.documentElement.style.setProperty(
+        "overflow",
+        "auto",
+        "important"
+      );
+    };
+  }, [isShowModal]);
+
   return (
     <>
       {isShowModal && (
