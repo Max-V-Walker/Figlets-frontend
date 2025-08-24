@@ -37,6 +37,8 @@ const BookNowComponent = () => {
     else setIFrameSrc("estimate-40mi-plus");
 
     setIsShowModal(false);
+
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
