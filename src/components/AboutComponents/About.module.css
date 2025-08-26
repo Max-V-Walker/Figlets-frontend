@@ -24,6 +24,15 @@
   width: 200px;
 }
 
+.insured {
+  /* border: 2px solid red; */
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 100;
+  line-height: 21px;
+  word-spacing: -1.5px;
+}
+
 .about-page-content {
   /* border: 3px solid red; */
   display: flex;
