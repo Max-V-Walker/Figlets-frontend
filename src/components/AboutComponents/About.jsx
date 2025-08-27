@@ -11,7 +11,6 @@ const About = () => {
       <div className={styles["about-page-image"]}>
         <img src={FigletsIcon} alt="Figlet's Icon" />
       </div>
-      <p className={styles.insured}>Fully Licensed & Insured <br/> Lic. #13VH11648000</p>
       <div className={styles["about-page-content"]}>
         <div>
           <div className={styles["about-card"]}>

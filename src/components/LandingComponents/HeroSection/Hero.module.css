@@ -29,6 +29,7 @@
   /* border: 2px solid red; */
   height: 300px;
   margin-left: 15px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -42,6 +43,21 @@
   letter-spacing: -0.5px;
   line-height: 40px;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+  margin-bottom: -30px;
+}
+
+.insured {
+  /* border: 2px solid red; */
+  color: rgb(250, 243, 243);
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 20px;
+  word-spacing: -1px;
+}
+
+.insured span {
+  font-size: 1.05rem;
+  /* font-weight: 0; */
 }
 
 .hero-content p {
@@ -52,7 +68,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  margin-top: -40px;
+  margin-top: -20px;
   text-decoration: none;
   box-shadow: 0 6px 14px rgba(225, 29, 42, 0.25);
   border-radius: 9999px;
@@ -94,7 +110,8 @@
   .hero-content {
     /* border: 3px solid red; */
     max-width: 800px;
-    margin-left: 8vw;
+    margin-left: 50px;
+    margin-bottom: 25px;
   }
 
   .hero-content h1 {
@@ -102,6 +119,10 @@
     width: 650px;
     font-size: 50px;
     margin-bottom: -60px;
+  }
+
+   .insured {
+    color: rgba(255, 255, 255, 0.938);
   }
 
   .hero-content p {
