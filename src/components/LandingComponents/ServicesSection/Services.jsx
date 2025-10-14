@@ -77,7 +77,7 @@ const Services = () => {
             alt="Dumpster & Demolition Services"
             loading="lazy"
           />
-          <p>Dumpster & Demolition 🚚</p>
+          <p>Demolition & Clean Outs 🚚</p>
         </Link>
       </div>
     </section>
