@@ -29,12 +29,15 @@ const BookNowComponent = () => {
     const data = await res.json();
     if (!res.ok) return alert(data.error || "Unable to get distance");
 
-    const miles = data.miles;
-
-    if (miles <= 10) setIFrameSrc("free-estimate");
-    else if (miles <= 25) setIFrameSrc("estimate-10-25mi");
-    else if (miles <= 40) setIFrameSrc("estimate-25-40mi");
-    else setIFrameSrc("estimate-40mi-plus");
+    
+    // On 10/14/25, we decided to make all appointments free hence the below line. To revert to different options, uncomment the IF condition below.
+    setIFrameSrc("free-estimate")
+    
+    // const miles = data.miles;
+    // if (miles <= 10) setIFrameSrc("free-estimate");
+    // else if (miles <= 25) setIFrameSrc("estimate-10-25mi");
+    // else if (miles <= 40) setIFrameSrc("estimate-25-40mi");
+    // else setIFrameSrc("estimate-40mi-plus");
 
     setIsShowModal(false);
 
